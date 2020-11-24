@@ -1,5 +1,13 @@
-*{
-  margin:0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Amazon Ember","Roboto", Arial, sans-serif;
+  letter-spacing: .5px;
+  text-decoration: none;
+}
+p, nav *{
+  color:white;
 }
