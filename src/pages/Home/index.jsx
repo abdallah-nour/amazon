@@ -1,11 +1,10 @@
 import React from 'react'
-import TopNav1 from '../../components/TopNav1'
-import MenuIcon from '@material-ui/icons/Menu';
+import CardContainer from '../../components/CardContainer'
+import Card from '../../components/Card'
 function Home() {
   return (
-    <div>
-      
-    </div>
+    <CardContainer>
+    </CardContainer>
   )
 }
 
