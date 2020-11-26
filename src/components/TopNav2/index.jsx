@@ -1,5 +1,5 @@
 import * as S from './Style';
-import Arrow from '../TopNav1/ArrowIcon'
+// import Arrow from '../TopNav1/ArrowIcon'
 export default function TopNav2() {
   return (
     <S.Container>
@@ -13,7 +13,8 @@ export default function TopNav2() {
         <S.ShopNavItem>Customer Service</S.ShopNavItem>
         <S.ShopNavItem>Browsing History
 {/**Here arrow color take the text color */}
-          <Arrow scale='.8' arrowcolor='red' top='-4px' right='2px' margin='-4px -10px 0 -2px' />
+{/**Arrow here  */}
+          {/* <Arrow scale='.8' arrowcolor='red' top='-4px' right='2px' margin='-4px -10px 0 -2px' /> */}
         </S.ShopNavItem>
         <S.ShopNavItem>Buy Again</S.ShopNavItem>
         <S.ShopNavItem>Gift Cards</S.ShopNavItem>

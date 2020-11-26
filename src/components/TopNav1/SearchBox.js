@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
 import ArrowIcon from './ArrowIcon';
 
 const focusEffect = css`
@@ -68,7 +68,8 @@ const SearchBtn = styled.button.attrs({ type: 'submit', })`
     background-color:#f3a847;
   }
 `;
-const SearchBtnIcon = styled(SearchIcon)`
+// const SearchBtnIcon = styled(SearchIcon)`
+const SearchBtnIcon = styled.span`
 transform:scale(1.25);
 padding-top:1px;
 margin: 1px 10.5px 0;

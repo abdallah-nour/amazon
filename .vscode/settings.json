@@ -1,6 +1,10 @@
 {
-  "cSpell.words": [
-    "Efct",
-    "arrowcolor"
-  ]
+	"editor.formatOnSave": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"cSpell.words": [
+		"Efct",
+		"arrowcolor"
+	],
 }
