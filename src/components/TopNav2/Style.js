@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+// import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const hoverEffect = css`
   border: 1px solid rgba(0,0,0,0);
@@ -25,7 +25,8 @@ export const Left = styled.nav`
   display:flex;
 `;
 
-const LocationIcon = styled(LocationOnIcon)`
+// const LocationIcon = styled(LocationOnIcon)`
+const LocationIcon = styled.span`
   margin-top: 4px ;
 `;
 

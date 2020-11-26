@@ -1,12 +1,21 @@
 import styled from 'styled-components';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
-const Icon = styled(ArrowDropDownIcon)`
-  color:${props => props.arrowcolor} ;
+// const Icon = styled(ArrowDropDownIcon)`
+//   color:${props => props.arrowcolor} ;
+//   transform: scale(${props => (props.scale)});
+//   position:relative;
+//   top: ${props => props.top};
+//   right : ${props => props.right};
+
+// `;
+
+const Icon = styled.span`
+  border-style: solid;
+  border-width: 4px;
+  border-color: transparent;
+  border-top: 4px solid ${props => props.arrowcolor} ;//
   transform: scale(${props => (props.scale)});
   position:relative;
-  top: ${props => props.top};
-  right : ${props => props.right};
+  padding:${props => props.top + ' ' + props.right + ' '} 0 0;
 `;
-
 export default Icon;
