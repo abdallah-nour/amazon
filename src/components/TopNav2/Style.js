@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const hoverEffect = css`
-  /* border: 1px solid rgba(0,0,0,0); */
-  border: 1px solid white;
+  border: 1px solid rgba(0,0,0,0);
+  border-radius: 2px;
+  /* border: 1px solid white; */
     &:hover{ 
       border-color: white;
     }
@@ -20,61 +21,68 @@ export const Container = styled.nav`
 /***/
 
 export const Left = styled.nav`
-margin-right: 45px;
-display:flex;
+  margin-right: 45px;
+  display:flex;
 `;
 
 const LocationIcon = styled(LocationOnIcon)`
-margin-top: 4px;
+  margin-top: 4px ;
 `;
 
-export const TxtContainer = styled(Link)`
-${hoverEffect}; 
-  margin: ${props => props.margin || '6px 0'};
+export const TxtContainer = styled(Link).attrs({ to: '/' })`
   display:flex;
-  padding: ${props => props.padding};
+  margin: ${props => props.margin || '6px 0'};
+  padding: ${props => props.padding || '5px 6.5px'};
+  ${hoverEffect}; 
 `;
-export const TxtContent = styled.div`
-  /* padding: ${props => props.padding}; */
-`;
-export const Txt1 = styled.p`
-  font-size: 12px;
-`;
-export const Txt2 = styled.p`
-  font-size: 14px;
+
+export const Txt = styled.p`
+  font-size: ${props => props.txtSize || '13.5px'};
   font-weight : ${props => props.fontWeight}; 
   margin-top:${props => props.marginTop};
+  display:flex;
   `;
 
 
 export const Location = () => {
   return (
-    <TxtContainer margin='2.5px 0' padding='1px 10px 0px 1px' >
+    <TxtContainer to='/' margin='2.5px 0' padding='1px 10px 0px 1px' >
       <LocationIcon />
-      <TxtContent >
-        <Txt1>Deliver to</Txt1>
-        <Txt2 fontWeight='700'>Palestinian Terri...</Txt2>
-      </TxtContent>
+      <div >
+        <Txt txtSize='11.5px'>Deliver to</Txt>
+        <Txt marginTop='-5px' fontWeight='600'>Palestinian Terri...</Txt>
+      </div>
     </TxtContainer>
   );
 }
 /***/
 export const ShopNav = styled.nav`
   display:flex;
+  /* margin-right:70px ;*/
+  
   & *{
     margin-right: 1px;
   }
-`;
+  `;
+/***/
 export const ShopNavItem = ({ children }) => {
   return (
-    <TxtContainer padding='5px 7px' >
-      <Txt2 >{children}</Txt2>
+    <TxtContainer  >
+      <Txt >{children}</Txt>
     </TxtContainer>
-
   );
 }
 
+export const Right = () => {
+  return (
+    <nav>
+      <TxtContainer margin='6px 0 6px 60px' >
+        <Txt>Amazon's response to COVID-19</Txt>
+      </TxtContainer>
+    </nav>
+  );
+}
 
-
+// export const RightTxt = styled.div``;
 
 // export const 

@@ -1,10 +1,10 @@
-import React from 'react'
-import TopNav1 from '../../components/TopNav1'
-import MenuIcon from '@material-ui/icons/Menu';
+import MainSlider from '../../components/MainSlider';
+import './style.css'
+
 function Home() {
   return (
-    <div>
-      
+    <div className='home'>
+      <MainSlider />
     </div>
   )
 }

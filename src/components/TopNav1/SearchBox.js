@@ -7,8 +7,8 @@ const focusEffect = css`
   box-shadow: 0 0 0 2px #F90, 0 0 0 3px rgba(255, 153, 0, .5);
   z-index:1;
 `;
-const Search = styled.form.attrs(props => props)`
-  width: 55.3%;
+const Search = styled.form`
+  width: 100%;
   height: 40px;
   border-radius:4px;
   background-color:white;
@@ -20,10 +20,9 @@ const Search = styled.form.attrs(props => props)`
   }
 `;
 
-const DropDown = styled.a`
+const DropDown = styled.div`
   text-decoration: none;
   padding: 0 3px;
-  height: 40px;
   background-color:#f3f3f3;
   border-radius: 4px 0 0 4px;
   border:1px solid #cdcdcd;
@@ -32,7 +31,7 @@ const DropDown = styled.a`
   align-items:center;
   cursor:pointer;
     &:focus{
-      ${focusEffect};
+      ${focusEffect} ;
     }
     &:hover{
       background-color:#dadada;
@@ -47,25 +46,20 @@ const DropDownSpan = styled.span`
 const DropDownTxt = styled.p`
   font-size: 12px;
   color:#555;
-  margin: 1pt 4.4px 0 5pt;
+  margin: 1pt 2.5px 0 5pt;
 `;
 
-const SearchTxtField = styled.input.attrs(props => props)`
-  width: 100%;
-  border: 0;
-  outline:0;
+const SearchTxtField = styled.input`
+  width: 95%;
   padding: 0px 4px 2px 7px;
   font-size: 15px;
 `;
 
 
 const SearchBtn = styled.button.attrs({ type: 'submit', })`
-  width:52px;
   height: 40px;
   background-color:#febd69;
   border-radius:0 4px 4px 0;
-  border: 0;
-  outline:0;
   cursor:pointer;
   &:focus{
     ${focusEffect};
@@ -77,6 +71,7 @@ const SearchBtn = styled.button.attrs({ type: 'submit', })`
 const SearchBtnIcon = styled(SearchIcon)`
 transform:scale(1.25);
 padding-top:1px;
+margin: 1px 10.5px 0;
 `;
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -85,7 +80,7 @@ export default function SearchBox() {
   const [focusEffect, setFocusEffect] = useState(false);
   return (
     <Search onSubmit={handleSubmit} focusEfct={focusEffect}>
-      <DropDown href='#'>
+      <DropDown >
         <DropDownSpan>
           <DropDownTxt>All</DropDownTxt>
           <ArrowIcon fontSize='small' arrowcolor='#555' scale='.9' />

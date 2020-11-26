@@ -1,0 +1,24 @@
+.next-arrow {
+  background-image: url('../../assets/arrow.png');
+  background-size: 68px 52px;
+  position: absolute;
+  top: 20.5%;
+  right: 7%;
+  transform: translate(-50%,-50%);
+  background-position: -44px 0;
+  background-repeat: no-repeat;
+  height: 46px;
+  width: 22px;
+}
+.prev-arrow{
+  height: 52px;
+  width: 34px;
+  background-image: url('../../assets/arrow.png');
+  background-size: 68px 52px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  position: absolute;
+  top: 21%;
+  left: 20%;
+  transform: translate(-50%,-50%);
+}
