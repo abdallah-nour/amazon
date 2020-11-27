@@ -1,10 +1,13 @@
-import React from 'react'
-import CardContainer from '../../components/CardContainer'
-import Card from '../../components/Card'
+import MainSlider from '../../components/MainSlider';
+import CardContainer from '../../components/CardContainer';
+import './style.css'
+
 function Home() {
   return (
-    <CardContainer>
-    </CardContainer>
+    <div className='home'>
+      <MainSlider />
+      <CardContainer />
+    </div>
   )
 }
 
