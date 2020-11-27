@@ -3,11 +3,13 @@ import * as S from './style'
 import Carousel from 'react-bootstrap/Carousel'
 import './style.css'
 
+const nextArrow = <span className='next-arrow'></span>;
+const prevArrow = <span className='prev-arrow'></span>;
 export default function MainSlider() {
   return (
     <S.Container>
-      <S.Slider >
-        <Carousel.Item>
+      <Carousel nextIcon={nextArrow} prevIcon={prevArrow} indicators={false}>
+        <Carousel.Item >
           <S.SliderImage
             image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2020/BlackFriday/Fuji_TallHero_BFWeek_v1_en_US_1x._CB415746974_.jpg"
           />
@@ -41,7 +43,7 @@ export default function MainSlider() {
             image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Beauty_v2_en_US_1x._CB429089975_.jpg"
           />
         </Carousel.Item>
-      </S.Slider>
+      </Carousel>
     </S.Container>
   )
 }
