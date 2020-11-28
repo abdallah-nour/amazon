@@ -52,7 +52,7 @@ export const Logo = styled.img`
   min-width: 80px;
 `;
 /***/
-export const Right = styled.div`
+export const Right = styled.nav`
   display: flex;
   align-items:center;
   min-width:361px;
