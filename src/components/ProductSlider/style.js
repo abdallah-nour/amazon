@@ -5,23 +5,22 @@ export const Container = styled.div`
   height: 285px;
   background-color: white;
   margin: 0 20px 25px;
-  margin: 0 20px 125px; /*delete when finish*/
   padding: 20px;
   `;
 
 export const Header = styled.header`
   font-size: 21px;
-  /* margin-bottom: 25px; */
 `;
 export const HeaderLink = styled(Link).attrs({ to: '/' })`
   padding-left: 15px;
   font-size: 14px;
   color: #007185;
+  &:hover {
+    color: #C7511F ;
+  }
   `;
 
 export const ScrollBox = styled.div`
-  /* scroll-snap-align:start;
-  scroll-padding:101px; */
   height: 225px;
   overflow:hidden;
   &:hover{ overflow-x:scroll; }
@@ -39,32 +38,21 @@ export const ScrollBox = styled.div`
   `;
 
 export const CarouselList = styled.ul`
-  /* scroll-snap-type: x mandatory; */
   width: 100.05%;
   display:flex;
     & :not(:last-child){
-      padding-right: 10px;
+      margin-right: 10px;
+    }
+    & a {
+      display:flex;
+      justify-content: center;
+      min-width: 145px;
+    }
+    & a img{
+      max-width: 270px;
+      max-height: 200px;
     }
   `;
-const Item = styled.li`
-  /* scroll-snap-align:start; */
-  min-width: 145px;
-  max-width: 270px;
-  max-height: 200px;
-  overflow: hidden;
-  display:flex;
-  justify-content: center;
-`;
-
-export const ListItemImage = (props) => {
-  return (
-    <Link to='/' style={{scrollSnapAlign:'start'}}>
-      <Item>
-        <img {...props} alt=''style={{scrollSnapAlign:'start'}} />
-      </Item>
-    </Link>
-  );
-}
 
 const ArrowButton = styled.button`
   padding: ${props => props.direction === 'next' ? '0 0 0 5px' : '0 5px 0 0'};
@@ -103,7 +91,7 @@ export const NextBtn = ({ disable, onClick }) => {
   return (
     <ArrowButton disable={disable} direction={dirc} onClick={onClick}>
       <Arrow direction={dirc}>
-      </Arrow>
+      </Arrow>  
     </ArrowButton>
   );
 }
