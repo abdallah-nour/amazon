@@ -6,15 +6,27 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Amazon Ember", Arial, sans-serif;
-  letter-spacing: .6px;
+  /* letter-spacing: .6px; */
   text-decoration: none;
   filter: blur(0);
   outline: 0;
   border: 0;
   color: #0F1111;
 }
+
 nav * {
   color: white;
   margin-bottom: 0;
   line-height: 1rem;
+}
+
+html {
+  background: #EAEDED;
+}
+
+ul {
+  list-style-type: none;
+}
+button:focus{
+  outline: 5px auto #008296;
 }
