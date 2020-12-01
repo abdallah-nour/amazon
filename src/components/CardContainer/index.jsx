@@ -31,7 +31,7 @@ export default function CardContainer() {
             </Card>
           </S.Column>
         </S.Row>
-        
+
         <S.Row xs={1} sm={2} md={3} lg={4}>
           <S.Column>
             <Card title='Deals & Promotions' linkTxt='Shop Now'>

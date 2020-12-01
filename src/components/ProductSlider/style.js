@@ -56,6 +56,7 @@ export const CarouselList = styled.ul`
 
 const ArrowButton = styled.button`
   padding: ${props => props.direction === 'next' ? '0 0 0 5px' : '0 5px 0 0'};
+  outline: 5px auto #008296;
   border-radius: 3px 0 0 3px;
   z-index: 1;
   position: absolute;

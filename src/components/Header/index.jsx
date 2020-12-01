@@ -2,17 +2,8 @@ import Nav1 from '../TopNav1';
 import Nav2 from '../TopNav2';
 function Header() {
   return (
-    <div>
+    <div id='header'>
       <Nav1 />
-
-
-
-
-
-
-
-
-      
       <Nav2 />
     </div>
   )
