@@ -1,43 +1,63 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { LinkFooter } from '../style'
 
 export const Container = styled.div`
     background-color: #131A22;
     padding: 10px 0 30px;
-    margin-bottom: 30px;
 `;
 export const Table = styled.table`
-  margin: 0 auto;
+  margin: 20px auto;
   width: 100%;
   max-width: 1000px;
-  display: flex;
 `;
 
 export const Row = styled.tr`
-line-height: normal;
-/* margin-right: 50px; */
-  & a{
-    margin-bottom:20px;
-  }
-`;
-// export const Cell = styled.td`
-// `;
+  vertical-align:top;
+  & td{padding-bottom: 1em;}
+  `;
 
-export const Cell = styled(Link)`
-  padding: 0 .75em;
-  :hover{
-    text-decoration: underline;
-    color: #999;
+export const Space = styled.td`width: 4%;`;
+
+export const CellContent = styled(LinkFooter)`
+  padding: 0 .8em;
+  display: block;
+  & div{
+    line-height: 1.1 ;
   }
-`;
+  `;
+
+export const Cell = ({ children }) => {
+  return (
+    <td>
+      <CellContent underlinecolor='#999'>
+        {children}
+      </CellContent>
+    </td>
+  );
+}
 
 export const CellHeader = styled.div`
   color: #DDD;
   font-size: 11px;
-  line-height: 115%;
-`;
-export const CellBody = styled.span`
+  line-height: 10px;
+  `;
+
+export const CellBody = styled.div`
   text-decoration-color: white;
   color: #999;
   font-size: 10px;
 `;
+
+export const CopyAndRights = styled.div`
+  margin: 0 auto;
+  max-width: 575px;
+  font-size:.75rem;
+  & a {
+    padding:0 .6em;
+  }
+`;
+
+export const CopyARLink = styled(LinkFooter)`
+`;
+
+export const CopyARTxt = styled.span`color: #999;`;
