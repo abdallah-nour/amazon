@@ -8,7 +8,7 @@ min-width: 1000px;
 export const LinkFooter = styled(Link).attrs({to:'/'})`
   color: #ddd;
   &:hover{
-    color:white;
+    color:#ddd;
     text-decoration: underline;
     text-decoration-color: ${props=> props.underlinecolor};
   }
