@@ -115,3 +115,31 @@ export const Orders = () => {
     </TwoLineTxt>
   );
 }
+
+export const CartContainer = styled(Link)`
+  display: flex;
+  padding:13px 9px 7px;
+  ${hoverEffect};
+`;
+
+export const CartIconContainer = styled.div`
+  /* padding-bottom: 1px; */
+  /* height: 39px; */
+`;
+
+export const CartIcon = styled.div`
+  background-image:url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
+  background-position: -10px -340px;
+  width: 38px;
+  height: 26px;
+`;
+
+export const CartNmb = styled.span`
+  color: #f08804;
+  position: absolute;
+  left: 17px;
+  top: -6px;
+  align-self:center;
+  text-align: center;
+  font-weight: 700;
+`;

@@ -25,9 +25,12 @@ export const Left = styled.nav`
   display:flex;
 `;
 
-// const LocationIcon = styled(LocationOnIcon)`
-const LocationIcon = styled.span`
-  margin-top: 4px ;
+const LocationIcon = styled.div`
+  background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
+  background-position: -71px -378px;
+  width: 15px;
+  height: 18px;
+  margin: 12px 3px 0 0;
 `;
 
 export const TxtContainer = styled(Link).attrs({ to: '/' })`
