@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-// const Icon = styled(ArrowDropDownIcon)`
-//   color:${props => props.arrowcolor} ;
-//   transform: scale(${props => (props.scale)});
-//   position:relative;
-//   top: ${props => props.top};
-//   right : ${props => props.right};
-
-// `;
-
 const Icon = styled.span`
   border-style: solid;
   border-width: 4px;

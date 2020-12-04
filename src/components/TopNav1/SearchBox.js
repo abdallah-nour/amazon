@@ -58,9 +58,12 @@ const SearchTxtField = styled.input`
 
 const SearchBtn = styled.button.attrs({ type: 'submit', })`
   height: 40px;
+  min-width: 45px;
   background-color:#febd69;
   border-radius:0 4px 4px 0;
   cursor:pointer;
+  background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
+  background-position: 2px -280px;
   &:focus{
     ${focusEffect};
   }
@@ -68,12 +71,7 @@ const SearchBtn = styled.button.attrs({ type: 'submit', })`
     background-color:#f3a847;
   }
 `;
-// const SearchBtnIcon = styled(SearchIcon)`
-const SearchBtnIcon = styled.span`
-transform:scale(1.25);
-padding-top:1px;
-margin: 1px 10.5px 0;
-`;
+
 const handleSubmit = (e) => {
   e.preventDefault();
 }
@@ -89,7 +87,6 @@ export default function SearchBox() {
       </DropDown>
       <SearchTxtField onClick={() => setFocusEffect(true)} onBlur={() => setFocusEffect(false)} />
       <SearchBtn>
-        <SearchBtnIcon />
       </SearchBtn>
     </Search>
   );
