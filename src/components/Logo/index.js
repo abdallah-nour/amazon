@@ -19,12 +19,12 @@ export const LogoBc = styled.i`
     background-image: url('https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIBaseCSS-sprite_1x-c4a765aedd886dc04d89e7e93b6a02c59ecb7013._V2_.png');
     display: inline-block;
     vertical-align: top;
-    margin: 15px 0 20px;
+    margin-bottom:${props => props.marginBottom || '20px'};
 `;
-export default function Logo() {
+export default function Logo({ marginBottom }) {
   return (
     <LogoLink to='/'>
-      <LogoBc />
+      <LogoBc marginBottom={marginBottom} />
     </LogoLink>
   )
 }
