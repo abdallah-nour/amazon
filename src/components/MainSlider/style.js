@@ -4,6 +4,9 @@ import arrow from "../../assets/arrow.png"
 
 export const Container = styled.div`
   max-height: 250px;
+  & .carousel-control-prev,.carousel-control-next{
+    opacity: .9;
+  }
 `;
 
 export const NextArrow = styled.span`
