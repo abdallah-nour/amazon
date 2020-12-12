@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Card({ headerImg, title, subTitle, linkTxt, children }) {
   return (
     <S.CardContainer>
-      <S.Content className='here we are'>
+      <S.Content >
         <S.Header>
           {headerImg && <S.HeaderImg src={headerImg} alt='' />}
           <S.Title>{title}</S.Title>
