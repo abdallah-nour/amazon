@@ -3,12 +3,21 @@ import { Link } from 'react-router-dom';
 
 export const P = styled.p`
   font-size: ${props => props.size || '12px'};
-  color: ${props => props.color};
+  color: ${props => props.color || '#0F1111'};
   margin:${props => props.margin};
   line-height: ${props => props.lineHeight};
-  font-weight: ${props => props.fontWeight};
-  text-align: ${props=> props.align};
-  letter-spacing: ${props=> props.lettersSpace};
+  font-weight: ${props => props.weight};
+  text-align: ${props => props.align};
+  letter-spacing: ${props => props.lettersSpace};
+`;
+export const Span = styled.span`
+  font-size: ${props => props.size || '12px'};
+  color: ${props => props.color || '#0F1111'};
+  margin:${props => props.margin};
+  line-height: ${props => props.lineHeight};
+  font-weight: ${props => props.weight};
+  text-align: ${props => props.align};
+  letter-spacing: ${props => props.lettersSpace};
 `;
 
 export const H = styled.h1`
@@ -16,14 +25,20 @@ font-size: ${props => props.size || '12px'};
 color: ${props => props.color};
 font-weight: ${props => props.fontWeight};
 line-height: ${props => props.lineHeight};
-margin: ${props=> props.margin};
+margin: ${props => props.margin};
+text-transform: ${props => props.capital || 'capitalize'};
+letter-spacing: ${props => props.lettersSpace || '0.45px'};
 `;
 
-export const CustomLink = styled(Link).attrs({ to: '/' })`
+export const CustomLink = styled(Link).attrs(props => ({ to: props.to || '#' }))`
   display:${props => props.display};
   font-size: ${props => props.size || '12px'};
-  color: ${props => props.color || '#0066c0'};
+  color: ${props => props.color || '#0F1111'};
+  font-weight: ${props => props.weight};
   margin:${props => props.margin};
+  line-height: ${props => props.height};
+  -webkit-line-clamp: ${props => props.lines};
+  overflow:${props => props.lines ? 'hidden' : ''};
   filter:  ${props => `brightness(${props.bright})`};
   :hover{color:${props => props.hoverColor || '#c45500'};}
 `;
@@ -45,7 +60,7 @@ const HrContainer = styled.div`
   height: 13px;
   line-height: 0;
   text-align: center;
-  margin: ${props=> props.margin || '14px'};
+  margin: ${props => props.margin || '14px'};
   ::after{
     content: "";
     width: 100%;

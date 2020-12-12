@@ -3,16 +3,19 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   display: block;
-  width: 100%;
+  position:${props=> props.position};
+  bottom:${props=> props.bottom};
+  left:${props=> props.left};
+  width: ${props => props.width || '100%'};
   max-width:346px;
-  height: 31px;
-  margin:0 auto;
+  height: ${props => props.height || '31px'};
+  margin:${props => props.margin || '0 auto'};
   color: #111;
   background: ${props => props.bgColor || 'linear-gradient(to bottom,#f7dfa5,#f0c14b)'};
   border: 1px solid ;
   border-radius: 3px;
   border-color: ${props => props.borderColor || '#a88734 #9c7e31 #846a29'};
-  
+  font-size:${props => props.size};
   :hover{
     background: ${props => props.hoverBg || 'linear-gradient(to bottom,#f5d78e,#eeb933)'};
   }

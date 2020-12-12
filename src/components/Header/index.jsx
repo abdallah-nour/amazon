@@ -1,9 +1,9 @@
 import Nav1 from '../TopNav1';
 import Nav2 from '../TopNav2';
-function Header() {
-  return (
+function Header({setDarkScreen}) {
+    return (
     <div id='header'>
-      <Nav1 />
+      <Nav1 setDarkScreen={setDarkScreen} />
       <Nav2 />
     </div>
   )
