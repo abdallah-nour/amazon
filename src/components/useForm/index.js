@@ -14,8 +14,6 @@ const useForm = (initInputs, cb) => {
   function handleSubmit(e) {
     e.preventDefault();
     cb();
-    history.push("/");
-    <Redirect to="/" />
   }
   return [inputs, handleChange, handleSubmit];
 }

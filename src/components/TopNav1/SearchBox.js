@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
+import axios from 'axios';
 // import SearchIcon from '@material-ui/icons/Search';
 import ArrowIcon from './ArrowIcon';
 
@@ -49,7 +50,7 @@ const DropDownTxt = styled.p`
   margin: 1pt 2.5px 0 5pt;
 `;
 
-const SearchTxtField = styled.input`
+const SearchTxtField = styled.input.attrs({ type: 'text' })`
   width: 95%;
   padding: 0px 4px 2px 7px;
   font-size: 15px;
@@ -72,20 +73,18 @@ const SearchBtn = styled.button.attrs({ type: 'submit', })`
   }
 `;
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-}
-export default function SearchBox() {
+
+export default function SearchBox({ onSubmit, value, onChange }) {
   const [focusEffect, setFocusEffect] = useState(false);
   return (
-    <Search onSubmit={handleSubmit} focusEfct={focusEffect}>
+    <Search onSubmit={onSubmit} focusEfct={focusEffect}>
       <DropDown >
         <DropDownSpan>
           <DropDownTxt>All</DropDownTxt>
           <ArrowIcon fontSize='small' arrowcolor='#555' scale='.9' />
         </DropDownSpan>
       </DropDown>
-      <SearchTxtField onClick={() => setFocusEffect(true)} onBlur={() => setFocusEffect(false)} />
+      <SearchTxtField value={value} onChange={(e) => onChange(e.target.value)} onClick={() => setFocusEffect(true)} onBlur={() => setFocusEffect(false)} />
       <SearchBtn>
       </SearchBtn>
     </Search>

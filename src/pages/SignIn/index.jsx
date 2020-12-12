@@ -15,12 +15,12 @@ export default function SignIn() {
     // e.preventDefault();
     auth.signInWithEmailAndPassword(inputs.email, inputs.password)
       .then(res => {
-        console.log( auth.currentUser!== null);
+        console.log(auth.currentUser !== null);
         history.push('/');
-        <Redirect to='/' />
+        // <Redirect to='/' />
       })
       .catch(err => {
-        console.log(err.message);
+        console.log("Error in SignIn\n", err.message);
       })
   }
 

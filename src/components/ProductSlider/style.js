@@ -17,6 +17,7 @@ export const HeaderLink = styled(Link).attrs({ to: '/' })`
   color: #007185;
   &:hover {
     color: #C7511F ;
+    text-decoration: underline;
   }
   `;
 
