@@ -4,14 +4,13 @@ import Card from '../Card'
 import { Container, Col } from 'react-bootstrap/'
 import image1 from '../../assets/card11.png'
 import image2 from '../../assets/card2.png'
-// we will put a content div inside Column and give it margin-bottom 25px
 
 export default function CardContainer() {
   return (
     <S.Wrapper>
       <Container fluid>
         <S.Row xs={1} sm={2} md={3} lg={4} margin='0 -25px 0px'>
-          <S.Column className='here I am' >
+          <S.Column>
             <Card title='Hi, abdallah' subTitle='Recommendations for you' headerImg='https://www.amazon.com/avatar/default?customer_id=amzn1.account.AEXZAUQVVJ64YPWL72M4U6GKFY5Q&max_width=60&max_height=60&square=true'>
               <img src={image1} alt='' />
             </Card>

@@ -1,3 +1,4 @@
+// the scroll bar don't change, (need it just for sing in and sign up)
 import styled from 'styled-components';
 import * as Txt from '../Txt';
 
