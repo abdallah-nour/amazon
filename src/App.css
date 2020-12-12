@@ -27,10 +27,15 @@ ul {
   list-style-type: none;
 }
 a:hover{
-  color: white;
   text-decoration: none;
 }
-::-webkit-scrollbar {
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+/* ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
 }
@@ -38,4 +43,4 @@ a:hover{
   border-radius: 4px;
   background-color: rgba(0,0,0,.5);
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
+} */

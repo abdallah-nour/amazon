@@ -11,6 +11,7 @@ export const Content = styled.div`
   min-height: 420px;
   position: relative;
   padding: 20px 20px 15px;
+  margin: 0 auto;
 `;
 
 export const Header = styled.header`
@@ -54,7 +55,7 @@ export const Footer = styled.div`
   bottom: 0;
   margin-bottom: 20px;
   height: 40px;
-  width: 100%;
+  width: 90%;
   max-width: 270px;
   background-color: white;
   `;
@@ -63,4 +64,8 @@ export const CardLink = styled(Link)`
   bottom: 0;
   color: #007185;
   font-size: 13px;
+  &:hover{
+    text-decoration: underline;
+    color:#C7511F ;
+  }
 `;

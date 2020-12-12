@@ -84,7 +84,7 @@ export const Txt = styled.p`
 /***/
 export const Lang = () => {
   return (
-    <Language to='/'>
+    <Language to='/search'>
       <Content padding=' 20px 8px 4px 10px '>
         <Flag src={usa} />
         <ArrowIcon arrowcolor='#a7acb2' scale='.8' right='2px' />
@@ -137,7 +137,8 @@ export const CartIcon = styled.div`
 export const CartNmb = styled.span`
   color: #f08804;
   position: absolute;
-  left: 17px;
+  /* left: 17px; */
+  width: 45px;
   top: -6px;
   align-self:center;
   text-align: center;
