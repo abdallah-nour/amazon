@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import * as Txt from '../Txt'
 import { useStateValue } from '../StateProvider';
 import axios from 'axios';
-
+import { Row } from '../Container';
 
 function TopNav1({ setDarkScreen }) {
   const history = useHistory();
@@ -37,7 +37,6 @@ function TopNav1({ setDarkScreen }) {
 
   return (
     <S.Container >
-      {/* <S.Left> */}
       {/* <S.MenuContainer >
           <S.Menu onClick={() => setDarkScreen(prevValue => !prevValue)}>
             <svg viewBox="0 -25 60 90" width="40" height="35" fill='white'>
@@ -47,32 +46,40 @@ function TopNav1({ setDarkScreen }) {
             </svg>
           </S.Menu>
         </S.MenuContainer> */}
-      <S.HeaderLink margin='0 0 0 5px' padding='0 9px 0 5px' onClick={logOut} >
-        <S.Logo src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' alt='' />
-      </S.HeaderLink>
+      <S.Middle>
+        <S.HeaderLink margin='0 0 0 5px' padding='0 9px 0 5px' onClick={logOut} >
+          <S.Logo src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' alt='' />
+        </S.HeaderLink>
         <S.HeaderLink hideOnMobile display='flex' margin='0 6px 0 0' padding='6px 9px 0 6px' >
           <S.Location />
         </S.HeaderLink>
-        <SearchBox onSubmit={search} value={searchField} onChange={setSearchField} />
-        <S.Right>
-          <S.HeaderLink hideOnMobile padding='20px 8px 4px 10px'  >
-            <S.Lang />
-          </S.HeaderLink>
-          <S.HeaderLink hideOnMobile padding='10px 5px 4px 9px' >
-            <S.UserInfo />
-          </S.HeaderLink>
-          <S.HeaderLink hideOnMobile padding='8.5px 10px' >
-            <S.Orders />
-          </S.HeaderLink>
-          <S.HeaderLink display="flex" padding='13px 9px 7px' to='/cart'>
-            <div>
-              <S.CartNmb>{numberOfItems}</S.CartNmb>
-              <S.CartIcon />
-            </div>
-
-            <Txt.P color='white' margin='10px 0 0 0' size='14px' lineHight='15px' fontWeight='700' >Cart</Txt.P>
-          </S.HeaderLink>
-        </S.Right>
+        <S.HeaderLink hideOnDesktop display="flex" padding='13px 9px 7px' to='/cart'>
+          <div>
+            <S.CartNmb>{numberOfItems}</S.CartNmb>
+            <S.CartIcon />
+          </div>
+          <Txt.P color='white' margin='10px 0 0 0' size='14px' lineHight='15px' fontWeight='700' >Cart</Txt.P>
+        </S.HeaderLink>
+      </S.Middle>
+      <SearchBox onSubmit={search} value={searchField} onChange={setSearchField} />
+      <S.Right>
+        <S.HeaderLink hideOnMobile padding='20px 8px 4px 10px'  >
+          <S.Lang />
+        </S.HeaderLink>
+        <S.HeaderLink hideOnMobile padding='10px 5px 4px 9px' >
+          <S.UserInfo />
+        </S.HeaderLink>
+        <S.HeaderLink hideOnMobile padding='8.5px 10px' >
+          <S.Orders />
+        </S.HeaderLink>
+        <S.HeaderLink hideOnMobile display="flex" padding='13px 9px 7px' to='/cart'>
+          <div>
+            <S.CartNmb>{numberOfItems}</S.CartNmb>
+            <S.CartIcon />
+          </div>
+          <Txt.P color='white' margin='10px 0 0 0' size='14px' lineHight='15px' fontWeight='700' >Cart</Txt.P>
+        </S.HeaderLink>
+      </S.Right>
     </S.Container >
   )
 }

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Arrow } from './ArrowIcon';
-import { Row } from '../Container';
 import * as Txt from '../Txt';
 
 const mobileWidth = '800px';
@@ -22,11 +21,12 @@ export const HeaderLink = styled(Link).attrs({ to: '#' })`
   border: 1px solid rgba(0,0,0,0);
   border-radius: 2px;
   white-space:nowrap;
+  display:${props => props.hideOnDesktop && 'none'};
     &:hover{ 
       border-color: white;
     }
     @media only screen and (max-width:${mobileWidth} ){
-      display:${props => props.hideOnMobile && 'none'};
+      display:${props => props.hideOnMobile ? 'none' : 'flex'};
     }
 `;
 /***/
@@ -38,16 +38,11 @@ export const Container = styled.div`
   padding: 4px 10px 8px 7px;
   @media only screen and (max-width: ${mobileWidth}){
     height: auto;
-    display:block;
-    
-    /* flex-direction: column; */
-    /* & :nth-child(1){
-      order: 1;
-    } */
-    /* & :nth-child(2){
-      order: 3;
+    flex-direction: column;
+    & > *{
+      margin-bottom: 5px;
     }
-    & :nth-child(3){
+    /* & :nth-child(1){
       order: 1;
     } */
   }
@@ -75,9 +70,8 @@ export const LogoContainer = styled(Link)`
 /***/
 export const Middle = styled.div`
   display: flex;
-  width: 70%;
   @media only screen and (max-width:800px){
-    /* flex-direction: column; */
+    justify-content: space-between;
   }
 `;
 /***/
