@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import ArrowIcon from './ArrowIcon';
-import usa from '../../assets/usa.png'
+import { Arrow } from './ArrowIcon';
+import { Row } from '../Container';
+import * as Txt from '../Txt';
+
+const mobileWidth = '800px';
 
 const hoverEffect = css`
   border: 1px solid rgba(0,0,0,0);
@@ -9,16 +12,45 @@ const hoverEffect = css`
     &:hover{ 
       border-color: white;
     }
-  `;
+`;
+
+export const HeaderLink = styled(Link).attrs({ to: '#' })`
+  height: 50px;
+  padding: ${props => props.padding};
+  margin: ${props => props.margin};
+  display: ${props => props.display};
+  border: 1px solid rgba(0,0,0,0);
+  border-radius: 2px;
+  white-space:nowrap;
+    &:hover{ 
+      border-color: white;
+    }
+    @media only screen and (max-width:${mobileWidth} ){
+      display:${props => props.hideOnMobile && 'none'};
+    }
+`;
 /***/
 export const Container = styled.div`
-  width: 100%;
-  height: 4.5%;
-  min-height: 47px;
-  max-height: 60px;
-  background-color: #131921;
-  padding: 6px 20px 8px 7px;
   display:flex;
+  width: 100%;
+  height: 60px;
+  background-color: #131921;
+  padding: 4px 10px 8px 7px;
+  @media only screen and (max-width: ${mobileWidth}){
+    height: auto;
+    display:block;
+    
+    /* flex-direction: column; */
+    /* & :nth-child(1){
+      order: 1;
+    } */
+    /* & :nth-child(2){
+      order: 3;
+    }
+    & :nth-child(3){
+      order: 1;
+    } */
+  }
 `;
 /***/
 export const MenuContainer = styled.div`cursor:pointer;`;
@@ -35,37 +67,103 @@ export const Menu = styled.div`
 `;
 /***/
 export const LogoContainer = styled(Link)`
-  width: 163px;
-  margin: -2px 6px 2px 0;
-  padding-top: 10px;
-  height: 52px;
+  height: 50px;
+  padding: 0 9px 0 5px;
+  margin-left: 5px;
   ${hoverEffect}
+`;
+/***/
+export const Middle = styled.div`
+  display: flex;
+  width: 70%;
+  @media only screen and (max-width:800px){
+    /* flex-direction: column; */
+  }
 `;
 /***/
 export const Left = styled.div`
   display: flex;
-`;
-/***/
-export const Logo = styled.img`
+  width: 70%;
+  flex:left;
+  @media only screen and (max-width:800px){
+  display: flex;
   width: 100%;
-  max-width: 97px;
-  min-width: 80px;
+  flex-direction: column-reverse;
+  /* margin: 0 auto; */
+  }
 `;
 /***/
+export const Logo = styled.span`
+  display:inline-block;
+  width: 100%;
+  width: 97px;
+  height: 30px;
+  background-image:url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
+  background-position: -10px -51px;
+  margin-top:13px;
+`;
+/***/
+
+const LocationIcon = styled.div`
+  background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
+  background-position: -71px -378px;
+  width: 19px;
+  height: 18px;
+  margin-top: 12px ;
+`;
+
+export const TxtContainer = styled(Link).attrs({ to: '/' })`
+  display:flex;
+  margin: ${props => props.margin || '6px 0'};
+  padding: ${props => props.padding || '5px 6.5px'};
+  ${hoverEffect}; 
+  height: 50px;
+`;
+
+export const LocationTxt = styled.p`
+  font-size: ${props => props.txtSize || '13.5px'};
+  font-weight : ${props => props.fontWeight}; 
+  margin-top:${props => props.marginTop};
+  display:flex;
+  color:white;
+  margin-bottom:0;
+  white-space:nowrap;
+  `;
+
+
+export const Location = () => {
+  return (
+    <>
+      <LocationIcon />
+      <Txt.Span>
+        <Txt.P color='#ccc' size='11.5px' margin='0 0 -5px' >Deliver to</Txt.P>
+        <Txt.Span wrap='nowrap' color='white' size='13.5px' >Palestinian Terri...</Txt.Span>
+      </Txt.Span>
+    </>
+  );
+}
+
 export const Right = styled.nav`
   display: flex;
   align-items:center;
-  min-width:361px;
+  @media only screen and (max-width:800px){
+    left: 0;
+  }
+  /* min-width:340px; */
+
 `;
 /***/
 export const Language = styled(Link)`
   ${hoverEffect};
   `;
 /***/
-export const Flag = styled.img`
-  width: 22px;
-  height:16px;
-  margin:0 -1px 8px 0 ;
+export const Flag = styled.span`
+  display:inline-block;
+  width: 24px;
+  height:18px;
+  background-image: url('https://m.media-amazon.com/images/G/01/AUIClients/InternationalCustomerPreferencesNavAssets-icp_sprite-7285cab5f8342a9a80f19b7ae5b155f77772ffc6._V2_.png');
+  background-position: 0 -130px;
+  /* margin:0 -1px 8px 0 ; */
   `;
 /***/
 export const TwoLineTxt = styled(Link)`
@@ -76,7 +174,7 @@ export const Content = styled.div`
   padding: ${ props => props.padding};
   `;
 /***/
-export const Txt = styled.p`
+export const TxtT = styled.p`
   font-size:${props => props.txtSize || '13.5px'};
   font-weight: ${props => props.fWeight};
   margin-top:${props => props.marginTop};
@@ -84,35 +182,30 @@ export const Txt = styled.p`
 /***/
 export const Lang = () => {
   return (
-    <Language to='/search'>
-      <Content padding=' 20px 8px 4px 10px '>
-        <Flag src={usa} />
-        <ArrowIcon arrowcolor='#a7acb2' scale='.8' right='2px' />
-      </Content>
-    </Language>
+    <div>
+      <Flag />
+      <Arrow margin='0 0 4px 4px' />
+    </div>
   );
 }
 export const UserInfo = () => {
   return (
-    <TwoLineTxt to='/' >
-      <Content padding='10px 0 4px 9px'>
-        <Txt txtSize='11.5px' >Hello, abdallah</Txt>
-        <Txt marginTop='-6px' fWeight='700'>Account & Lists
-              <ArrowIcon arrowcolor='#a7acb2' scale='.8' top='9px' right='3px' />
-        </Txt>
-      </Content>
-    </TwoLineTxt>
+    <>
+      <TxtT txtSize='11.5px' >Hello, abdallah</TxtT>
+      <TxtT marginTop='-6px' fWeight='700'>Account & Lists
+      {/* <ArrowIcon arrowcolor='#a7acb2' scale='.8' top='9px' right='3px' /> */}
+        <Arrow margin='9px 3px 0px 5px' />
+      </TxtT>
+    </>
   );
 }
 /***/
 export const Orders = () => {
   return (
-    <TwoLineTxt to='/' >
-      <Content padding='8.5px 10px'>
-        <Txt txtSize='11.5px'>Returns</Txt>
-        <Txt marginTop='-5px' fWeight='700'>& Orders</Txt>
-      </Content>
-    </TwoLineTxt>
+    <>
+      <TxtT txtSize='11.5px'>Returns</TxtT>
+      <TxtT marginTop='-5px' fWeight='700'>& Orders</TxtT>
+    </>
   );
 }
 

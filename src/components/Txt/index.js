@@ -18,6 +18,7 @@ export const Span = styled.span`
   font-weight: ${props => props.weight};
   text-align: ${props => props.align};
   letter-spacing: ${props => props.lettersSpace};
+  white-space: ${props => props.wrap};
 `;
 
 export const H = styled.h1`

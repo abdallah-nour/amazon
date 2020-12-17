@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import axios from 'axios';
 // import SearchIcon from '@material-ui/icons/Search';
 import ArrowIcon from './ArrowIcon';
 
@@ -14,10 +13,13 @@ const Search = styled.form`
   border-radius:4px;
   background-color:white;
   display:flex;
-  margin:4px 4px 0 0;
+  margin:4px 14px 0 7px;
   ${props => props.focusEfct && focusEffect};
-  @media only screen and (max-width: 820px) {
+  /* @media only screen and (max-width: 820px) {
     height: 50px;
+  } */
+  @media only screen and (max-width:800px){
+  margin: 0 auto;
   }
 `;
 
@@ -73,8 +75,16 @@ const SearchBtn = styled.button.attrs({ type: 'submit', })`
   }
 `;
 
+// const Select = styled.select`
+//   opacity: 0;
+// `;
+// const Option = styled.option`
+//   height: 5px;
+//   overflow:auto;
+//   font-size:.9em;
+// `;
 
-export default function SearchBox({ onSubmit, value, onChange }) {
+export default function SearchBox({ onSubmit, value, onChange, dropDownValue, onChangeDropDown }) {
   const [focusEffect, setFocusEffect] = useState(false);
   return (
     <Search onSubmit={onSubmit} focusEfct={focusEffect}>
@@ -84,6 +94,11 @@ export default function SearchBox({ onSubmit, value, onChange }) {
           <ArrowIcon fontSize='small' arrowcolor='#555' scale='.9' />
         </DropDownSpan>
       </DropDown>
+      {/* <Select value={dropDownValue} onChange={onChangeDropDown} >
+        <Option value="value1">Value 1</Option>
+        <Option value="value2" selected>Value 2</Option>
+        <Option value="value3">Value 3</Option>
+      </Select> */}
       <SearchTxtField value={value} onChange={(e) => onChange(e.target.value)} onClick={() => setFocusEffect(true)} onBlur={() => setFocusEffect(false)} />
       <SearchBtn>
       </SearchBtn>
