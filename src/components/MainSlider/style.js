@@ -42,6 +42,7 @@ export const Image = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  box-shadow:inset 0px -313px 169px -93px #EAEDED;
 `;
 export const SliderImage = (props) => {
   return (

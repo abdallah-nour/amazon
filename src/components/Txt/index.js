@@ -33,6 +33,7 @@ letter-spacing: ${props => props.lettersSpace || '0.45px'};
 
 export const CustomLink = styled(Link).attrs(props => ({ to: props.to || '#' }))`
   display:${props => props.display};
+  max-width:${props => props.max_width};
   font-size: ${props => props.size || '12px'};
   color: ${props => props.color || '#0F1111'};
   font-weight: ${props => props.weight};
@@ -40,7 +41,6 @@ export const CustomLink = styled(Link).attrs(props => ({ to: props.to || '#' }))
   line-height: ${props => props.height};
   -webkit-line-clamp: ${props => props.lines};
   overflow:${props => props.lines ? 'hidden' : ''};
-  filter:  ${props => `brightness(${props.bright})`};
   :hover{color:${props => props.hoverColor || '#c45500'};}
 `;
 

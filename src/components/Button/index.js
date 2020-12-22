@@ -7,6 +7,8 @@ const Button = styled.button`
   bottom:${props=> props.bottom};
   left:${props=> props.left};
   width: ${props => props.width || '100%'};
+  min-width:  ${props => props.minWidth || 'min-content'};
+  min-height: min-content;
   max-width:346px;
   height: ${props => props.height || '31px'};
   margin:${props => props.margin || '0 auto'};

@@ -1,8 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react'
-import * as S from './style'
-import { Link } from 'react-router-dom'
+import React, { useRef, useState, useEffect } from 'react';
+import * as S from './style';
+import { Link } from 'react-router-dom';
 // Q
-// can i reach the property scrollLeft from react component without Refs.
 /* Is better to declare handleScroll fun out the component ???? */
 export default function ProductSlider({ headerTxt, headerLink, children, defaultArrowBtnDisable }) {
   const [isPrevBtnDisable, setPrevBtnDisable] = useState(false);
@@ -13,6 +12,9 @@ export default function ProductSlider({ headerTxt, headerLink, children, default
     scrollValue == carouselRef.current.scrollWidth ? setNextBtnDisable(true) : setNextBtnDisable(false);
     (carouselRef.current.scrollLeft) == 0 ? setPrevBtnDisable(true) : setPrevBtnDisable(false);
   }
+  useEffect(() => {
+    handleScroll();
+  }, []);
 
   return (
     <S.Container>
@@ -24,7 +26,7 @@ export default function ProductSlider({ headerTxt, headerLink, children, default
       <S.NextBtn disable={defaultArrowBtnDisable || isNextBtnDisable} onClick={() => { carouselRef.current.scroll({ left: carouselRef.current.scrollLeft + 1000, behavior: 'smooth' }) }} />
       <S.ScrollBox ref={carouselRef} onScroll={handleScroll}>
         <S.CarouselList >
-          {children.map((img,index) => <li key={index}><Link to='/'>{img}</Link></li>)}
+          {children.map((img, index) => <li key={index}><Link to='/'>{img}</Link></li>)}
         </S.CarouselList>
       </S.ScrollBox>
     </S.Container >
