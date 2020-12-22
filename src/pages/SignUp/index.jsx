@@ -3,24 +3,27 @@ import Logo from '../../components/Logo'
 import TxtField from '../../components/TxtField'
 import Button from '../../components/Button'
 import useForm from '../../components/useForm'
-import { db, auth } from '../../firebase'
+import { auth } from '../../firebase'
 import * as Sign from '../../components/SignComponents'
 import * as Txt from '../../components/Txt'
 import * as S from './style';
-
-function CreateUser() {
-  auth.createUserWithEmailAndPassword(inputs.email, inputs.password)
-    .then((auth) => {
-      // here when successfully create the user and the password.
-      history.push('/');
-    })
-    .catch(err => {
-      alert(err.message);
-      console.log(err.message);
-    })
-}
+import { useHistory } from 'react-router-dom';
+import { useStateValue } from '../../components/StateProvider';
 
 export default function SignUp() {
+  const [{ }, dispatch] = useStateValue();
+  const history = useHistory();
+
+  async function CreateUser(email, password, name) {
+    try {
+      const res = await auth.createUserWithEmailAndPassword(email, password);
+      await res.user.updateProfile({ displayName: name });
+      dispatch({ type: 'UPDATE_USER', payload: { name: res.user.displayName } });
+      history.push('/');
+    } catch (err) {
+      console.log(err);
+    }
+  }
   const [inputs, handleChange, handleSubmit] = useForm({ name: '', email: '', password: '', repassword: '' }, CreateUser);
   return (
     <Sign.Container>
