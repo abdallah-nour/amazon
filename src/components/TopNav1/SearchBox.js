@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-// import SearchIcon from '@material-ui/icons/Search';
-import ArrowIcon from './ArrowIcon';
+// import ArrowIcon from './ArrowIcon';
 
 const focusEffect = css`
   box-shadow: 0 0 0 2px #F90, 0 0 0 3px rgba(255, 153, 0, .5);
   z-index:1;
 `;
+
 const Search = styled.form`
   width: 100%;
   height: 40px;
@@ -14,10 +14,7 @@ const Search = styled.form`
   background-color:white;
   display:flex;
   margin:4px 14px 0 7px;
-  ${props => props.focusEfct && focusEffect};
-  /* @media only screen and (max-width: 820px) {
-    height: 50px;
-  } */
+  ${props => props.hasFocusEffect && focusEffect};
   @media only screen and (max-width:800px){
   margin: 0 auto;
   }
@@ -75,30 +72,28 @@ const SearchBtn = styled.button.attrs({ type: 'submit', })`
   }
 `;
 
-// const Select = styled.select`
-//   opacity: 0;
-// `;
-// const Option = styled.option`
-//   height: 5px;
-//   overflow:auto;
-//   font-size:.9em;
-// `;
 
-export default function SearchBox({ onSubmit, value, onChange, dropDownValue, onChangeDropDown }) {
+const ArrowIcon = styled.span`
+  border-style: solid;
+  border-width: 4px;
+  border-color: transparent;
+  border-top: 4px solid ${props => props.arrowcolor} ;
+  transform: scale(${props => (props.scale)});
+  position:relative;
+  padding:${props => props.top + ' ' + props.right + ' '} 0 0;
+`;
+
+
+export default function SearchBox({ onSubmit, value, onChange }) {
   const [focusEffect, setFocusEffect] = useState(false);
   return (
-    <Search onSubmit={onSubmit} focusEfct={focusEffect}>
+    <Search onSubmit={onSubmit} hasFocusEffect={focusEffect}>
       <DropDown >
         <DropDownSpan>
           <DropDownTxt>All</DropDownTxt>
           <ArrowIcon fontSize='small' arrowcolor='#555' scale='.9' />
         </DropDownSpan>
       </DropDown>
-      {/* <Select value={dropDownValue} onChange={onChangeDropDown} >
-        <Option value="value1">Value 1</Option>
-        <Option value="value2" selected>Value 2</Option>
-        <Option value="value3">Value 3</Option>
-      </Select> */}
       <SearchTxtField value={value} onChange={(e) => onChange(e.target.value)} onClick={() => setFocusEffect(true)} onBlur={() => setFocusEffect(false)} />
       <SearchBtn>
       </SearchBtn>
