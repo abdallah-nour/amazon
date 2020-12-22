@@ -1,25 +1,32 @@
 import styled from 'styled-components';
 import { LinkFooter } from '../style'
-
+import { Row as RowB } from '../../Container'
 export const Container = styled.div`
     background-color: #131A22;
     padding: 10px 0 30px;
 `;
 export const Table = styled.table`
-  margin: 20px auto;
   width: 100%;
-  max-width: 1000px;
-`;
-
-export const Row = styled.tr`
-  vertical-align:top;
-  & td{padding-bottom: 1em;}
+  max-width: 1060px;
   `;
 
-export const Space = styled.td`width: 4%;`;
+export const Row = styled(RowB)`
+  max-width:${props => props.max_width};
+  margin: 20px auto;
+  & > * {
+    margin-bottom:12px;
+    white-space: nowrap;
+  }
+  @media only screen and (min-width:1000px){
+    & > * {
+      flex: 0 0 14.285%;
+      max-width: 14.285%;
+    } 
+  }
+`;
 
 export const CellContent = styled(LinkFooter)`
-  padding: 0 .8em;
+  /* padding: 0 .8em; */
   display: block;
   & div{
     line-height: 1.1 ;
@@ -28,11 +35,11 @@ export const CellContent = styled(LinkFooter)`
 
 export const Cell = ({ children }) => {
   return (
-    <td>
+    <div >
       <CellContent underlinecolor='#999'>
         {children}
       </CellContent>
-    </td>
+    </div>
   );
 }
 
@@ -50,11 +57,10 @@ export const CellBody = styled.div`
 
 export const CopyAndRights = styled.div`
   margin: 0 auto;
-  max-width: 575px;
+  max-width: 630px;
   font-size:.75rem;
-  & a {
-    padding:0 .6em;
-  }
+  white-space:nowrap;
+  text-align:center;
 `;
 
 export const CopyARLink = styled(LinkFooter)`
