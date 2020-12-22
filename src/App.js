@@ -1,6 +1,6 @@
 // import Header from './components/Header';
 {/* <link href="//db.onlinewebfonts.com/c/157c6cc36dd65b1b2adc9e7f3329c761?family=Amazon+Ember" rel="stylesheet" type="text/css" /> */ }
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
@@ -16,26 +16,23 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
 } from "react-router-dom";
+import SideMenu from './components/SideMenu';
 
 function App() {
+  const [visibleSideMenu, setVisibility] = useState(false);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      console.log('Thes user is >>> ', user);
+      console.log('The user is >>> ', user);
       if (user) {
         // here when the user is signed in
-
       } else {
         // here when the user is signed out (or doesn't signed in)
       }
-
     });
-  }, []);
+  }, [auth.user]);
   return (
     <div className="App">
-      {console.log('App\n', auth.currentUser == true)}
-
       <Router>
         <Wrapper margin='0 auto' maxWidth='1500px'>
           <Container fluid padding='0'>
@@ -60,7 +57,8 @@ function App() {
                 {console.log(auth.currentUser)} */}
                   <>
                     {/* <Header />  */}
-                    <Home /></>
+                    <Home setSideMenuVisibility={setVisibility} /></>
+                  <SideMenu visible={visibleSideMenu} setVisibility={setVisibility} />
                   {/* //   : <>
             //     {console.log(auth.currentUser)}
             //     < Redirect to='/signIn' />
@@ -68,10 +66,12 @@ function App() {
           // } */}
                 </Route>
                 <Route path='/search'>
-                  <Search />
+                  <Search setSideMenuVisibility={setVisibility} />
+                  <SideMenu visible={visibleSideMenu} setVisibility={setVisibility} />
                 </Route>
                 <Route path='/cart'>
-                  <Cart />
+                  <Cart setSideMenuVisibility={setVisibility} />
+                  <SideMenu visible={visibleSideMenu} setVisibility={setVisibility} />
                 </Route>
               </Switch>
             </StateProvider>

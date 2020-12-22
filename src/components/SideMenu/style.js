@@ -6,12 +6,11 @@ import * as Txt from '../Txt';
 import { Link } from 'react-router-dom';
 
 export const SideMenuContainer = styled.div`
-  display:block;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  will-change:visibility;
   visibility: ${props => props.visible ? 'visible' : 'hidden'};
   height: 100vh;
   z-index: 1;
@@ -21,6 +20,7 @@ export const DarkScreen = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
+  will-change:opacity;
   opacity: ${props => props.visible ? .9 : 0};
   transition:  .3s;
 `;
@@ -38,13 +38,15 @@ export const CloseIcon = styled.div`
 
 export const SideMenu = styled.div`
   position: fixed;
-  width: 365px;
+  width: 80%;
+  max-width: 365px;
   height: 100vh;
   overflow: scroll;
   background-color: white;
   box-shadow: 4px 0 10px 0 rgba(0,0,0,.4);
-  transition: .3s;
   transform: translateX(${props => props.visible ? ('0') : ('-100%')});
+  transition: .3s;
+  will-change:transform;
   `;
 
 export const HeaderContainer = styled.header`
@@ -68,12 +70,12 @@ const MenuIcon = styled.div`
   margin-right: 10px;
 `;
 
-export const MenuHeader = ({isUserSignedIn, userName}) => {
+export const MenuHeader = ({ userName }) => {
   return (
-    <Txt.CustomLink to='/signin'>
+    <Txt.CustomLink to={userName ? '#' : '/signin'}>
       <HeaderContainer>
         <MenuIcon />
-        <Txt.H margin='3px 0 0 0' color='white' weight='700' size='19px' >Hello, {isUserSignedIn ? userName:'Sign in'}</Txt.H>
+        <Txt.H margin='3px 0 0 0' color='white' weight='700' size='19px' >Hello, {userName || 'Sign in'}</Txt.H>
       </HeaderContainer>
     </Txt.CustomLink>
   );
@@ -82,9 +84,6 @@ export const MenuHeader = ({isUserSignedIn, userName}) => {
 const MenuBody = styled.div`
   overflow-x: hidden;
 `;
-
-
-
 
 // List: left/ 36px, right/20px 
 export const BodyList = styled.ul`
@@ -110,9 +109,9 @@ export const ListHeader = ({ children, divider = true }) => {
 const ListItemArrow = styled.i`
     background-image:url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
     background-position: ${props => props.direction === 'bottom' ? '-184px -342px' : '-137px -288px'};
-    margin-left: ${props=> props.direction ==='bottom' ? '10px':''};
-    width: ${props=> props.direction==='bottom'? '13px': '10px'};
-    height: ${props=> props.direction==='bottom'? '8px': '14px'};
+    margin-left: ${props => props.direction === 'bottom' ? '10px' : ''};
+    width: ${props => props.direction === 'bottom' ? '13px' : '10px'};
+    height: ${props => props.direction === 'bottom' ? '8px' : '14px'};
   `;
 
 const ListItemContainer = styled.li`
