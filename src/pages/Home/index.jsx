@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import MainSlider from '../../components/MainSlider';
-import ProductSlider from '../../components/ProductSlider';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
 import * as S from './style'
+
 import { FirstCardsContainer, SecondCardsContainer, ThirdCardsContainer } from '../../components/CardsContainer';
 
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import MainSlider from '../../components/MainSlider';
+import ProductSlider from '../../components/ProductSlider';
 
 function Home({ setSideMenuVisibility }) {
   return (
@@ -119,8 +119,4 @@ function Home({ setSideMenuVisibility }) {
   )
 }
 
-export default Home
-
-// {/* <ProductSlider headerTxt='' headerLink=''>
-//   <img src='' alt='' />
-// </ProductSlider> */}
+export default Home;

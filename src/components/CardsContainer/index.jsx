@@ -1,6 +1,7 @@
-import React from 'react'
 import * as S from './style'
+
 import Card from '../Card'
+import React from 'react'
 import image1 from '../../assets/card11.png'
 import image2 from '../../assets/card2.png'
 import { useStateValue } from '../StateProvider';
@@ -12,13 +13,13 @@ export function FirstCardsContainer() {
     <S.CardsContainer >
       <S.Row>
         <S.Column>
-          <Card title={'Hi, ' + (user.name || 'Sign In')} subTitle='Recommendations for you' headerImg='https://www.amazon.com/avatar/default?customer_id=amzn1.account.AEXZAUQVVJ64YPWL72M4U6GKFY5Q&max_width=60&max_height=60&square=true'>
-            <img src={image1} alt='' />
+          <Card imgMaxHeight={'244px'} imgFit='none' title={'Hi, ' + (user.name || 'Sign In')} linkTxt='' subTitle='Recommendations for you' headerImg='https://www.amazon.com/avatar/default?customer_id=amzn1.account.AEXZAUQVVJ64YPWL72M4U6GKFY5Q&max_width=60&max_height=60&square=true'>
+            <img src={'https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg'} alt='' />
           </Card>
         </S.Column>
         <S.Column>
           <Card title='Recently viewed' linkTxt='See your browsing history' >
-            <img src={image2} alt='' />
+            <img src={'https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Laptops_379x304_1X_en_US._SY304_CB418608471_.jpg'} alt='' />
           </Card>
         </S.Column>
         <S.Column>
@@ -43,7 +44,7 @@ export function FirstCardsContainer() {
         </S.Column>
         <S.Column>
           <Card title='Shop by Category' linkTxt='Shop Now'>
-            <img src={image1} alt='' />
+            <img src={'https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Beauty_1x._SY304_CB432774351_.jpg'} alt='' />
           </Card>
         </S.Column>
         <S.Column>
