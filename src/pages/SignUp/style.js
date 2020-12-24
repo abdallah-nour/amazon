@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import * as Txt from '../../components/Txt'
+
+import styled from 'styled-components';
 
 const PasswordIcon = styled.i`
     display:inline-block;

@@ -1,12 +1,13 @@
-import React from 'react'
-import Logo from '../../components/Logo'
-import TxtField from '../../components/TxtField'
-import Button from '../../components/Button'
-import useForm from '../../components/useForm'
-import { auth } from '../../firebase'
+import * as S from './style';
 import * as Sign from '../../components/SignComponents'
 import * as Txt from '../../components/Txt'
-import * as S from './style';
+
+import Button from '../../components/Button'
+import Logo from '../../components/Logo'
+import React from 'react'
+import TxtField from '../../components/TxtField'
+import { auth } from '../../firebase'
+import useForm from '../../components/useForm'
 import { useHistory } from 'react-router-dom';
 import { useStateValue } from '../../components/StateProvider';
 
@@ -19,6 +20,8 @@ export default function SignUp() {
       const res = await auth.createUserWithEmailAndPassword(email, password);
       await res.user.updateProfile({ displayName: name });
       dispatch({ type: 'UPDATE_USER', payload: { name: res.user.displayName } });
+      // let response = await res.user.sendEmailVerification();
+      // console.log('Sign up /',response);
       history.push('/');
     } catch (err) {
       console.log(err);
