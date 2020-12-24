@@ -1,5 +1,6 @@
+import { Col, Container as ContainerB, Row as RowB } from 'react-bootstrap';
+
 import styled from 'styled-components'
-import { Container as ContainerB, Col, Row as RowB } from 'react-bootstrap';
 
 export const Wrapper = styled.div`
   max-width:${props => props.maxWidth};

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import styled from 'styled-components'
 
 export const P = styled.p`
   font-size: ${props => props.size || '12px'};
@@ -9,6 +9,7 @@ export const P = styled.p`
   font-weight: ${props => props.weight};
   text-align: ${props => props.align};
   letter-spacing: ${props => props.lettersSpace};
+  text-transform: capitalize;
 `;
 export const Span = styled.span`
   font-size: ${props => props.size || '12px'};
@@ -19,6 +20,7 @@ export const Span = styled.span`
   text-align: ${props => props.align};
   letter-spacing: ${props => props.lettersSpace};
   white-space: ${props => props.wrap};
+  text-transform: capitalize;
 `;
 
 export const H = styled.h1`
@@ -42,6 +44,8 @@ export const CustomLink = styled(Link).attrs(props => ({ to: props.to || '#' }))
   -webkit-line-clamp: ${props => props.lines};
   overflow:${props => props.lines ? 'hidden' : ''};
   :hover{color:${props => props.hoverColor || '#c45500'};}
+  text-transform: ${props => props.transform || 'capitalize'};
+  text-transform: ;
 `;
 
 
