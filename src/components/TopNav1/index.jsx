@@ -1,29 +1,35 @@
 // Q/ why when give hide_on_desktop a boolean true give me error
 // Q/ how to prevent prop from being passed to dom, like when give prop hideOnMobile (will cause error, if reach the dom).
 
-import { useState, useEffect } from 'react';
 import * as S from './Style'
-import SearchBox from './SearchBox'
-import { auth } from '../../firebase'
-import { useHistory, useLocation } from 'react-router-dom'
 import * as Txt from '../Txt'
+
+import { useEffect, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom'
+
 import { HeaderLink } from '../Header/style';
+import SearchBox from './SearchBox'
 import { useStateValue } from '../StateProvider';
 
-
 function TopNav1() {
+  // ./node_modules/.bin/eslint --init
   const history = useHistory();
   const [{ cart, user }, dispatch] = useStateValue();
-  const { search: searchUrl } = useLocation();
-  const searchQuery = searchUrl.substr(3).replace(/[\+]/g, " ");
-  const [searchField, setSearchField] = useState(searchQuery.substring(3) || '');
+  const { search: searchQ } = useLocation();
+  const searchQuery = searchQ.substr(3).replace(/[\+]/g, " ");
+  const [searchField, setSearchField] = useState(searchQuery || '');
   const [userName, setUserName] = useState('');
+
+  
   let numberOfItems = cart.length;
   useEffect(() => {
     setUserName(user.name);
   }, [user.name]);
 
   function search(e) {
+
+
+    
     e.preventDefault();
     if (searchField) {
       dispatch({ type: 'CLEAR_SEARCH_RESULTS' });

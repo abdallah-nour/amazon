@@ -1,5 +1,7 @@
-import { useState } from 'react';
 import styled, { css } from 'styled-components';
+
+import { useState } from 'react';
+
 // import ArrowIcon from './ArrowIcon';
 
 const focusEffect = css`
@@ -21,7 +23,6 @@ const Search = styled.form`
 `;
 
 const DropDown = styled.div`
-  text-decoration: none;
   padding: 0 3px;
   background-color:#f3f3f3;
   border-radius: 4px 0 0 4px;
@@ -38,7 +39,7 @@ const DropDown = styled.div`
     }
 `;
 
-const DropDownSpan = styled.span`
+const DropDownContent = styled.span`
   display:flex;
   justify-content: center;
   align-items:center;
@@ -83,17 +84,21 @@ const ArrowIcon = styled.span`
   padding:${props => props.top + ' ' + props.right + ' '} 0 0;
 `;
 
+const Select = styled.select`
+  
+`;
 
 export default function SearchBox({ onSubmit, value, onChange }) {
   const [focusEffect, setFocusEffect] = useState(false);
   return (
     <Search onSubmit={onSubmit} hasFocusEffect={focusEffect}>
       <DropDown >
-        <DropDownSpan>
+        <DropDownContent>
           <DropDownTxt>All</DropDownTxt>
           <ArrowIcon fontSize='small' arrowcolor='#555' scale='.9' />
-        </DropDownSpan>
+        </DropDownContent>
       </DropDown>
+
       <SearchTxtField value={value} onChange={(e) => onChange(e.target.value)} onClick={() => setFocusEffect(true)} onBlur={() => setFocusEffect(false)} />
       <SearchBtn>
       </SearchBtn>
