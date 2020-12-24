@@ -1,14 +1,19 @@
-import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+
+const mobileWidth = '576px';
 
 export const CardContainer = styled.div`
   font-size: 13px;
   background-color:white;
   max-height: 420px;
+  @media only screen and (max-width:${mobileWidth}){
+    margin: 0 35px;
+  }
 `;
 
 export const Content = styled.div`
-  min-height: 420px;
+  height: 420px;
   position: relative;
   padding: 20px 20px 15px;
   margin: 0 auto;
@@ -17,17 +22,6 @@ export const Content = styled.div`
 export const Header = styled.header`
   display:flex;
   margin-bottom: 10px;
-`;
-
-export const Title = styled.h2`
-  font-size: 20px;
-  line-height: 27px;
-  font-weight: 700;
-`;
-
-export const SubTitle = styled.p`
-  font-weight: 700;
-  margin-bottom: 14px;
 `;
 
 export const HeaderImage = styled.img`
@@ -45,27 +39,17 @@ export const HeaderImg = (props) => {
 export const Body = styled.div`
 margin-top:-10px;
   & img{
-    height: 100%;
+    display:block;
+    margin: 0 auto;
+    height: ${props=> props.imgMaxHeight || '100%'};
     max-width: 100%;
-    object-fit:cover;
+    object-fit: ${props=> props.imgFit || 'cover'};
   }
   `;
 export const Footer = styled.div`
   position: absolute;
   bottom: 0;
-  margin-bottom: 20px;
-  height: 40px;
-  width: 90%;
-  max-width: 270px;
+  margin-bottom: 15px;
+  width:70%;
   background-color: white;
   `;
-export const CardLink = styled(Link)`
-  position: absolute;
-  bottom: 0;
-  color: #007185;
-  font-size: 13px;
-  &:hover{
-    text-decoration: underline;
-    color:#C7511F ;
-  }
-`;
