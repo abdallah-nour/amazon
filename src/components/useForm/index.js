@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
-import { db, auth } from '../../firebase'
 
 const useForm = (initInputs, cb) => {
-  const history = useHistory();
   const [inputs, setInputs] = useState(initInputs || {});
 
   function handleChange(e) {
@@ -13,7 +10,7 @@ const useForm = (initInputs, cb) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    cb();
+    cb(inputs.email, inputs.password, inputs.name);
   }
   return [inputs, handleChange, handleSubmit];
 }

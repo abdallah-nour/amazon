@@ -1,17 +1,25 @@
 import styled from 'styled-components';
 import * as Txt from '../Txt';
 
+const smallLapWidth = '1145px';
+const ipadWidth = '835px';
+const mobileWidth = '480px';
+
 export const Container = styled.div`
   width: 100%;
   margin: 6px 0;
   display: flex;
   min-height: 200px ;
+  @media only screen and (max-width:${ipadWidth}){
+    flex-direction: column;
+  }
 `;
 
 export const Left = styled.div`
+  display:flex;
 `;
 export const Right = styled.div`
-  max-width: 560px;
+  margin-right:30px;
 `;
 
 const CheckBoxContainer = styled.div`
@@ -78,7 +86,6 @@ export const ItemImg = ({ imgSrc }) => {
   );
 }
 
-// const IsGiftInput = styled.input``;
 const IsGiftLabel = styled.label`
   display:flex;
   align-items:center;
@@ -114,6 +121,11 @@ export const ControlRow = styled.div`
   margin-top: -9px;
   display:flex;
   align-items:center;
+  @media (max-width:${mobileWidth}){
+    margin-top: 0px;
+    flex-direction: column;
+    align-items:flex-start ;
+  }
 `;
 
 export const DropDownContainer = styled.div`
@@ -124,7 +136,7 @@ export const DropDownContainer = styled.div`
   border: 1px solid #D5D9D9;
   box-shadow: 0 2px 5px rgba(15,17,17,.15);
   height: 29px;
-  width: 80px;
+  min-width: 80px;
   display:flex;
   align-items: center; 
   `;
@@ -183,11 +195,22 @@ export const ControlRowDivider = styled.i`
   width: 1px;
   height: 15px;
   background-color: #ddd;
+  @media (max-width:${mobileWidth}){
+    margin: 0 .5em;
+    transform:rotate(90deg);
+  }
 `;
 
-export const PriceTxt = styled.span`
-  position:absolute;
-  right: 0;
+export const PriceTxt = styled.div`
+  display: ${props => props.hide_on_desktop ? 'none' : 'block'};
+  text-align: right;
   font-size: 18px;
   font-weight: 700;
+  flex-grow:100;
+  height:max-content;
+  @media only screen and (max-width:${ipadWidth}){
+  width: 100%;
+  display: ${props => props.hide_on_mobile ? 'none' : 'block'};
+    margin-right: 10px;
+  }
 `;

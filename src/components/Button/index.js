@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-
 const Button = styled.button`
   display: block;
   position:${props=> props.position};
   bottom:${props=> props.bottom};
   left:${props=> props.left};
   width: ${props => props.width || '100%'};
+  min-width:  ${props => props.minWidth || 'min-content'};
   max-width:346px;
   height: ${props => props.height || '31px'};
+  min-height: min-content;
   margin:${props => props.margin || '0 auto'};
   color: #111;
   background: ${props => props.bgColor || 'linear-gradient(to bottom,#f7dfa5,#f0c14b)'};
@@ -16,6 +17,7 @@ const Button = styled.button`
   border-radius: 3px;
   border-color: ${props => props.borderColor || '#a88734 #9c7e31 #846a29'};
   font-size:${props => props.size};
+  white-space: nowrap;
   :hover{
     background: ${props => props.hoverBg || 'linear-gradient(to bottom,#f5d78e,#eeb933)'};
   }

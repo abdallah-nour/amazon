@@ -22,8 +22,9 @@ export const FooterBtnContent = styled.div`
 
 export const Table = styled.div`
   display: table;
-  margin: 50px auto 0;
-  max-width: 1000px;
+  margin: 40px auto 0;
+  width: 100%;
+  max-width: 1100px;
 `;
 
 export const Row = styled.div`
@@ -51,10 +52,12 @@ export const CellList = styled.ul``;
 export const ListItem = styled.li`
   font-size: 14px;
   color: #ddd;
+  line-height: 1.2;
+  margin-bottom: 12px;
 `;
 export const Item = ({ children }) => {
   return (
-    <LinkFooter underlinecolor='white'>
+    <LinkFooter underline_color='white'>
       <ListItem >
         {children}
       </ListItem>
@@ -71,15 +74,23 @@ export const SecondSection = styled.div`
   margin: 0px auto 40px;
   max-width: 590px;
   line-height: 18px;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
+  white-space: nowrap;
   & span{
     padding: 0 .6em;
     display: inline-block;
   }
-  & a{
-    margin-right: 4px;
+`;
+
+export const BtnContainer = styled.div`
+  display:flex;
+  align-items: center;
+  justify-content: center;
+    margin: 0 auto;
+  @media only screen and (max-width: 600px){
+    flex-direction:column;
+  & a {
+    margin-top: 12px;
+  }
   }
 `;
 
@@ -88,7 +99,7 @@ export const Logo = styled.div`
   width: 76px;
   height: 23px;
   background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
-  margin-bottom: -15px;
+  margin: 10px auto 0;
   `;
 
 

@@ -1,82 +1,92 @@
-import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
-import ArrowIcon from './ArrowIcon';
-import usa from '../../assets/usa.png'
+import styled from 'styled-components';
+import * as Txt from '../Txt';
+import { Arrow } from '../Header/style';
 
-const hoverEffect = css`
-  border: 1px solid rgba(0,0,0,0);
-  border-radius: 2px;
-    &:hover{ 
-      border-color: white;
-    }
-  `;
+/***/
+const mobileWidth = '800px';
 /***/
 export const Container = styled.div`
-  width: 100%;
-  height: 4.5%;
-  min-height: 47px;
-  max-height: 60px;
-  background-color: #131921;
-  padding: 6px 20px 8px 7px;
   display:flex;
+  width: 100%;
+  height: 60px;
+  background-color: #131921;
+  padding: 4px 10px 8px 7px;
+  @media only screen and (max-width: ${mobileWidth}){
+    height: auto;
+    flex-direction: column;
+  }
 `;
-/***/
-export const MenuContainer = styled.div`cursor:pointer;`;
-/***/
-export const Menu = styled.div`
-  border-radius: 3px;
-  max-width: 38px;
-  ${hoverEffect};
-  border-color:rgb(102, 102, 102);
-  margin-right:6px;
-  margin-top:4px;
-  margin: 4px 6px 0 0;
-  padding-bottom: 3px;
-`;
-/***/
-export const LogoContainer = styled(Link)`
-  width: 163px;
-  margin: -2px 6px 2px 0;
-  padding-top: 10px;
-  height: 52px;
-  ${hoverEffect}
-`;
+/****/
+// const Arrow = styled.span`
+//   width: 6px;
+//   height: 6px;
+//   display: inline-block;
+//   border: solid #fff;
+//   border-width: 1.4px 1.4px 0 0;
+//   transform: rotate(135deg);
+//   margin:${props=> props.margin};
+// `;
 /***/
 export const Left = styled.div`
   display: flex;
+  @media only screen and (max-width:800px){
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
 `;
 /***/
-export const Logo = styled.img`
+export const Logo = styled.i`
+  display:inline-block;
   width: 100%;
-  max-width: 97px;
-  min-width: 80px;
+  width: 97px;
+  height: 30px;
+  background-image:url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
+  background-position: -10px -51px;
+  margin-top:13px;
 `;
+/***/
+const LocationIcon = styled.i`
+  display:inline-block;
+  background-image: url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
+  background-position: -71px -378px;
+  width: 19px;
+  height: 18px;
+  margin-top: 12px ;
+`;
+/***/
+export const Location = () => {
+  return (
+    <>
+      <LocationIcon />
+      <Txt.Span>
+        <Txt.P color='#ccc' size='11.5px' margin='0 0 -5px' >Deliver to</Txt.P>
+        <Txt.Span wrap='nowrap' color='white' size='13.5px' >Palestinian Terri...</Txt.Span>
+      </Txt.Span>
+    </>
+  );
+}
 /***/
 export const Right = styled.nav`
   display: flex;
   align-items:center;
-  min-width:361px;
+  @media only screen and (max-width:800px){
+    left: 0;
+  }
 `;
 /***/
-export const Language = styled(Link)`
-  ${hoverEffect};
+export const Flag = styled.span`
+  display:inline-block;
+  width: 24px;
+  height:18px;
+  background-image: url('https://m.media-amazon.com/images/G/01/AUIClients/InternationalCustomerPreferencesNavAssets-icp_sprite-7285cab5f8342a9a80f19b7ae5b155f77772ffc6._V2_.png');
+  background-position: 0 -130px;
   `;
 /***/
-export const Flag = styled.img`
-  width: 22px;
-  height:16px;
-  margin:0 -1px 8px 0 ;
-  `;
-/***/
-export const TwoLineTxt = styled(Link)`
-  padding: ${props => props.padding};
-  ${hoverEffect};
-  `;
 export const Content = styled.div`
   padding: ${ props => props.padding};
   `;
 /***/
-export const Txt = styled.p`
+export const TxtT = styled.p`
   font-size:${props => props.txtSize || '13.5px'};
   font-weight: ${props => props.fWeight};
   margin-top:${props => props.marginTop};
@@ -84,60 +94,43 @@ export const Txt = styled.p`
 /***/
 export const Lang = () => {
   return (
-    <Language to='/search'>
-      <Content padding=' 20px 8px 4px 10px '>
-        <Flag src={usa} />
-        <ArrowIcon arrowcolor='#a7acb2' scale='.8' right='2px' />
-      </Content>
-    </Language>
+    <div>
+      <Flag />
+      <Arrow margin='0 0 4px 4px' />
+    </div>
   );
 }
-export const UserInfo = () => {
+/***/
+export const UserInfo = ({ name }) => {
   return (
-    <TwoLineTxt to='/' >
-      <Content padding='10px 0 4px 9px'>
-        <Txt txtSize='11.5px' >Hello, abdallah</Txt>
-        <Txt marginTop='-6px' fWeight='700'>Account & Lists
-              <ArrowIcon arrowcolor='#a7acb2' scale='.8' top='9px' right='3px' />
-        </Txt>
-      </Content>
-    </TwoLineTxt>
+    <>
+      <Txt.P color='white' size='11.5px'>Hello, {name || 'Sign In'}</Txt.P>
+      <Txt.P color='white' margin='-6px 0 0 0' weight='700' size='13.5px'>Account & Lists
+        <Arrow margin='9px 3px 0px 5px' />
+      </Txt.P>
+    </>
   );
 }
 /***/
 export const Orders = () => {
   return (
-    <TwoLineTxt to='/' >
-      <Content padding='8.5px 10px'>
-        <Txt txtSize='11.5px'>Returns</Txt>
-        <Txt marginTop='-5px' fWeight='700'>& Orders</Txt>
-      </Content>
-    </TwoLineTxt>
+    <>
+      <TxtT txtSize='11.5px'>Returns</TxtT>
+      <TxtT marginTop='-5px' fWeight='700'>& Orders</TxtT>
+    </>
   );
 }
-
-export const CartContainer = styled(Link)`
-  display: flex;
-  padding:13px 9px 7px;
-  ${hoverEffect};
-`;
-
-export const CartIconContainer = styled.div`
-  /* padding-bottom: 1px; */
-  /* height: 39px; */
-`;
-
+/***/
 export const CartIcon = styled.div`
   background-image:url('https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png');
   background-position: -10px -340px;
   width: 38px;
   height: 26px;
 `;
-
+/***/
 export const CartNmb = styled.span`
   color: #f08804;
   position: absolute;
-  /* left: 17px; */
   width: 45px;
   top: -6px;
   align-self:center;

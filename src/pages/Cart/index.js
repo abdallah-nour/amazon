@@ -1,29 +1,30 @@
-import { useState } from 'react'
-import CartList from '../../components/CartList';
-import CartItem from '../../components/CartItem';
-import Header from '../../components/Header';
-import CartSubtotal from '../../components/CartSubtotal';
-import Button from '../../components/Button';
-import { useStateValue } from '../../components/StateProvider';
 import * as S from './style';
 
-export default function Cart() {
-  const [{ cart }, dispatch] = useStateValue();
+import { useEffect, useState } from 'react';
+
+import Button from '../../components/Button';
+import CartItem from '../../components/CartItem';
+import CartItemsList from '../../components/CartItemsList';
+import CartSubtotal from '../../components/CartSubtotal';
+import Header from '../../components/Header';
+import { useStateValue } from '../../components/StateProvider';
+
+export default function Cart({ setSideMenuVisibility }) {
+  const [{ cart }] = useStateValue();
   return (
     <>
-      <Header />
+      <Header setSideMenuVisibility={setSideMenuVisibility} />
       <S.Container>
         <S.Left>
-          <CartList>
+          <CartItemsList>
             {
-              cart.map((item, index) => <CartItem key={item.position || index} index={index} descTxt={item.title} imgSrc={item.image} price={item.price} />)
+              cart.map((item, index) => <CartItem key={item.id} index={index} descTxt={item.title} imgSrc={item.image} price={item.price} />)
             }
-          </CartList>
+          </CartItemsList>
         </S.Left>
         <S.Space />
         <S.Right>
           <S.RightContent>
-            {/* <CartSubtotal /> */}
             <CartSubtotal />
             <S.CheckBoxLabel>
               <S.CheckBoxInput type="checkbox" />

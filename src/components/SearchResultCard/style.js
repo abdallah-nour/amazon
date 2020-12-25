@@ -1,13 +1,14 @@
-import styled from 'styled-components';
 import * as Txt from '../Txt';
+
+import styled from 'styled-components';
 
 export const Card = styled.div`
   padding: 26px 12px 16px;
   max-width:249px;
-  margin:20px auto 0;
+  margin:0 auto;
   height: 100%;
   border-bottom: ${ props => props.borderBottom || '2px solid #ddd'};
-`;
+  `;
 
 export const CardHeader = styled.header`
   min-height: 20px;
@@ -15,23 +16,23 @@ export const CardHeader = styled.header`
 export const CardImg = styled.img`
   margin-bottom: 8px;
   max-width: 100%;
+  object-fit:cover;
 `;
 
 export const SponsorContainer = styled(Txt.CustomLink)`
-  max-width: 297.6px;
   color: #565959; 
 `;
 
 
 export const SponsorIcon = styled.span`
+  display: inline-block;
   background-image: url('https://m.media-amazon.com/images/G/01/AUIClients/SearchStyleAssets-info_icon_with_hover_sprite_2x-f897dfc1918a6ccd515b940404f80e11271a2c96._V2_.png');
-  background-size: 11px 22px; /*try to delete*/
+  background-size: 11px 22px;
   width: 11px;
   height: 11px;
   margin-bottom: 1px;
-  display: inline-block;
-  vertical-align: text-bottom;
   margin-left: 5px;
+  vertical-align: text-bottom;
   ${SponsorContainer}:hover &{
     background-position-y: -11px;
   }
@@ -59,7 +60,6 @@ export const DescTxt = styled(Txt.CustomLink)`
   -webkit-line-clamp:4;
 `;
 
-
 const PriceContainer = styled.div`
   font-size: 12px;
   margin-top: 8px;
@@ -73,14 +73,19 @@ const PriceFraction = styled.span`
   top: -.5em;
 `;
 
-export const Price = ({ fraction = 99, currencyIcon = '$', children }) => {
+export const Price = ({ currencyIcon = '$', children }) => {
+  const priceInString = children && children.toString();
+  const dotPosition = priceInString && priceInString.indexOf('.');
+  const fraction = priceInString && priceInString.substr(dotPosition + 1);
+  const integer = priceInString && priceInString.substring(0, dotPosition);
+
   return (
     <PriceContainer>
-      <PriceFraction>{currencyIcon}</PriceFraction>
+      <PriceFraction>{priceInString && currencyIcon}</PriceFraction>
       <PriceTxt>
-        {children}
+        {dotPosition !== -1 ? integer : fraction}
       </PriceTxt>
-      <PriceFraction>{fraction}</PriceFraction>
+      <PriceFraction>{dotPosition !== -1 ? fraction : ''}</PriceFraction>
     </PriceContainer>
   );
 }

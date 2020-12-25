@@ -8,20 +8,22 @@ import useForm from '../../components/useForm'
 import * as bg from '../../components/Background'
 import { auth } from '../../firebase'
 import { useHistory, Redirect } from 'react-router-dom'
+import { useStateValue } from '../../components/StateProvider';
 
 export default function SignIn() {
   const history = useHistory();
-  function SignIn() {
-    // e.preventDefault();
-    auth.signInWithEmailAndPassword(inputs.email, inputs.password)
+  const [{ }, dispatch] = useStateValue();
+
+  function SignIn(email, pass) {
+    auth.signInWithEmailAndPassword(email, pass)
       .then(res => {
-        console.log(auth.currentUser !== null);
+        const userName = res.user.displayName;
+        dispatch({ type: 'UPDATE_USER', payload: { name: userName } });
         history.push('/');
-        // <Redirect to='/' />
       })
       .catch(err => {
         console.log("Error in SignIn\n", err.message);
-      })
+      });
   }
 
   const [inputs, handleChange, handleSubmit] = useForm({ email: '', password: '' }, SignIn);

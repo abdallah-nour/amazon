@@ -1,12 +1,13 @@
 import Nav1 from '../TopNav1';
 import Nav2 from '../TopNav2';
-function Header({setDarkScreen}) {
-    return (
-    <div id='header'>
-      <Nav1 setDarkScreen={setDarkScreen} />
-      <Nav2 />
-    </div>
+
+function Header({ setSideMenuVisibility }) {
+  return (
+    <header id='header'>
+      <Nav1 />
+      <Nav2 setSideMenuVisibility={setSideMenuVisibility} />
+    </header>
   )
 }
 
-export default Header
+export default Header;

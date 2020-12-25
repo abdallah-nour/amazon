@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import * as Txt from '../Txt';
-import CurrencyFormat from 'react-currency-format';
-import { nmbOfItems, priceOfItems } from '../CartState';
 import * as S from './style';
+import * as Txt from '../Txt';
+
+import CurrencyFormat from 'react-currency-format';
+import { useState } from 'react';
 import { useStateValue } from '../../components/StateProvider';
 
 export default function CartItem({ index, imgSrc, descTxt, price }) {
@@ -12,7 +12,7 @@ export default function CartItem({ index, imgSrc, descTxt, price }) {
   const [{ cart }, dispatch] = useStateValue();
   function deleteItem() {
     cart.splice(index, 1);
-    dispatch({ type: 'EDIT_CART', newCart: cart });
+    dispatch({ type: 'EDIT_CART', payload: cart });
   }
   return (
     <>
@@ -20,22 +20,32 @@ export default function CartItem({ index, imgSrc, descTxt, price }) {
         <S.Left>
           <S.CheckBox value={isSelectItem} onChange={setIsSelected} />
           <S.ItemImg imgSrc={imgSrc}></S.ItemImg>
+          <S.PriceTxt hide_on_desktop>
+            < CurrencyFormat
+              renderText={(value) => (value)}
+              value={price}
+              decimalScale={2}
+              displayType={'text'}
+              thousandSeparator={true}
+              prefix={'$'}
+            />
+          </S.PriceTxt>
         </S.Left>
         <S.Right>
-          <Txt.CustomLink height='26px' color='#007185' size='18px' weight='700' margin='0'>{descTxt}</Txt.CustomLink>
-          <Txt.P color='#007600' margin='1px 0 0 0'>In Stock</Txt.P>
+          <Txt.CustomLink display="inline-block" height='26px' color='#007185' size='18px' weight='700' margin='0'>{descTxt}</Txt.CustomLink>
+          <Txt.P align='left' color='#007600' margin='1px 0 0 0'>In Stock</Txt.P>
           <S.IsGift value={isGift} handleChange={setIsGift} />
           <S.ControlRow>
             <S.QuantitySelect value={quantity} onChange={setQuantity} />
             <S.ControlRowDivider />
-            <Txt.CustomLink onClick={deleteItem} to='#' color='#007185'>Delete</Txt.CustomLink>
+            <Txt.CustomLink onClick={deleteItem} color='#007185'>Delete</Txt.CustomLink>
             <S.ControlRowDivider />
             <Txt.CustomLink color='#007185'>Save for later</Txt.CustomLink>
             <S.ControlRowDivider />
             <Txt.CustomLink color='#007185'>Compare with similar items</Txt.CustomLink>
           </S.ControlRow>
         </S.Right>
-        <S.PriceTxt>
+        <S.PriceTxt hide_on_mobile>
           < CurrencyFormat
             renderText={(value) => (value)}
             value={price}
@@ -46,13 +56,7 @@ export default function CartItem({ index, imgSrc, descTxt, price }) {
           />
         </S.PriceTxt>
       </S.Container>
-      <Txt.Divide margin='-7px 0 0 0' />
+      <Txt.Divide margin='20px 0 0 0' />
     </>
   )
 }
-
-// const 
-
-
-
-// export const ActionsRow

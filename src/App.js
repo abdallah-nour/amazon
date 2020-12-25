@@ -1,41 +1,47 @@
 // import Header from './components/Header';
 {/* <link href="//db.onlinewebfonts.com/c/157c6cc36dd65b1b2adc9e7f3329c761?family=Amazon+Ember" rel="stylesheet" type="text/css" /> */ }
-import { useEffect } from 'react';
-import Home from './pages/Home';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
-import Search from './pages/Search';
-import Cart from './pages/Cart';
-import { Wrapper, Container } from './components/Container';
-import { StateProvider } from './components/StateProvider';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { auth } from './firebase';
 import './App.css';
-import reducer, { initState } from './components/reducer';
+
+import { Container, Wrapper } from './components/Container';
 import {
+  Route,
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
 } from "react-router-dom";
+import reducer, { initState } from './components/reducer';
+import { useEffect, useState } from 'react';
+
+import Cart from './pages/Cart';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import SideMenu from './components/SideMenu';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import { StateProvider } from './components/StateProvider';
+import { auth } from './firebase';
 
 function App() {
+  const [visibleSideMenu, setVisibility] = useState(false);
   useEffect(() => {
+    const usr = auth.currentUser;
+    if(usr){
+      console.log('there is user/ ', usr);
+    }else{
+      console.log("there isn't any ");
+    }
     auth.onAuthStateChanged((user) => {
-      console.log('Thes user is >>> ', user);
+      console.log('The user is >>> ', user);
       if (user) {
         // here when the user is signed in
-
       } else {
         // here when the user is signed out (or doesn't signed in)
       }
-
     });
-  }, []);
+  }, [auth.user]);
   return (
     <div className="App">
-      {console.log('App\n', auth.currentUser == true)}
-
       <Router>
         <Wrapper margin='0 auto' maxWidth='1500px'>
           <Container fluid padding='0'>
@@ -60,7 +66,8 @@ function App() {
                 {console.log(auth.currentUser)} */}
                   <>
                     {/* <Header />  */}
-                    <Home /></>
+                    <Home setSideMenuVisibility={setVisibility} /></>
+                  <SideMenu visible={visibleSideMenu} setVisibility={setVisibility} />
                   {/* //   : <>
             //     {console.log(auth.currentUser)}
             //     < Redirect to='/signIn' />
@@ -68,10 +75,12 @@ function App() {
           // } */}
                 </Route>
                 <Route path='/search'>
-                  <Search />
+                  <Search setSideMenuVisibility={setVisibility} />
+                  <SideMenu visible={visibleSideMenu} setVisibility={setVisibility} />
                 </Route>
                 <Route path='/cart'>
-                  <Cart />
+                  <Cart setSideMenuVisibility={setVisibility} />
+                  <SideMenu visible={visibleSideMenu} setVisibility={setVisibility} />
                 </Route>
               </Switch>
             </StateProvider>

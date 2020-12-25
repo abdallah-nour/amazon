@@ -1,5 +1,6 @@
+import { Col, Container as ContainerB, Row as RowB } from 'react-bootstrap';
+
 import styled from 'styled-components'
-import {Container as ContainerB ,Col, Row as RowB } from 'react-bootstrap';
 
 export const Wrapper = styled.div`
   max-width:${props => props.maxWidth};
@@ -15,8 +16,9 @@ export const Column = styled(Col)`
 `;
 
 export const Row = styled(RowB)`
-  margin: ${props => props.margin};
+  margin: ${props => props.margin || '0'};
   max-height: ${props => props.maxHeight};
+  width: ${props => props.width};
   max-width: ${props => props.max_width};
 `;
 
