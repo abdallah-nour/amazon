@@ -23,7 +23,8 @@ export default function useSearch() {
   useEffect(() => {
     dispatch({type:'CLEAR_SEARCH_RESULTS'});
     console.log('will do these filters/ ', filters);
-    axios.get(`https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${filters.length !== 0 ? 'refinements=' + filters.join(',') : ''}`)
+    // axios.get(`https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${filters.length !== 0 ? 'refinements=' + filters.join(',') : ''}`)
+    axios.get(`https://api.rainforestapi.com/request?api_key=A2132F2D12384FA6A95F0582C117E22C&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${filters.length !== 0 ? 'refinements=' + filters.join(',') : ''}`)
       .then(res => {
         const searchResults = res.data.search_results;
         setRefinements(res.data.refinements);
