@@ -17,14 +17,14 @@ export default function useSearch() {
     setTimeout(() => {
       history.push('/');
     }, 1000);
-    return <h1>ERROR, Please enter a query value</h1>;
+    return <h1> Please enter a query value</h1>;
   }
 
   useEffect(() => {
     dispatch({type:'CLEAR_SEARCH_RESULTS'});
     console.log('will do these filters/ ', filters);
     // axios.get(`https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${filters.length !== 0 ? 'refinements=' + filters.join(',') : ''}`)
-    axios.get(`https://api.rainforestapi.com/request?api_key=BC80EEE21AD74268B450CCB202BEC946&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${filters.length !== 0 ? 'refinements=' + filters.join(',') : ''}`)
+    axios.get(`https://api.rainforestapi.com/request?api_key=98C395E074A84E16A7983EA782645EF3&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${filters.length !== 0 ? 'refinements=' + filters.join(',') : ''}`)
       .then(res => {
         const searchResults = res.data.search_results;
         setRefinements(res.data.refinements);
