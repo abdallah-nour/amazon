@@ -15,11 +15,10 @@ export default function useSearch() {
 
   useEffect(() => {
     dispatch({ type: "CLEAR_SEARCH_RESULTS" });
-    // axios.get(`https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${filters.length !== 0 ? 'refinements=' + filters.join(',') : ''}`)
     if (search) {
       axios
         .get(
-          `https://api.rainforestapi.com/request?api_key=98C395E074A84E16A7983EA782645EF3&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${
+          `https://api.rainforestapi.com/request?api_key=${apiKey}&type=search&amazon_domain=amazon.com&search_term=${searchQuery}&sort_by=featured&${
             filters.length !== 0 ? "refinements=" + filters.join(",") : ""
           }`
         )
