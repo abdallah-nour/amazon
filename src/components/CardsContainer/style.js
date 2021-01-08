@@ -1,5 +1,6 @@
-import styled from 'styled-components'
-import * as Wrap from '../Container';
+import * as Wrap from "../Container";
+
+import styled from "styled-components";
 
 export const CardsWrapper = styled.div`
   max-width: 1500px;
@@ -8,13 +9,19 @@ export const CardsWrapper = styled.div`
 export const CardsContainer = ({ children }) => {
   return (
     <CardsWrapper>
-      <Wrap.Container fluid={true} padding='0 20px'>
+      <Wrap.Container fluid={true} padding="0 20px">
         {children}
       </Wrap.Container>
     </CardsWrapper>
   );
-}
+};
 
-export const Column = styled(Wrap.Column).attrs({ padding: '0 10px 25px' })``;
+export const Column = styled(Wrap.Column).attrs({ padding: "0 10px 25px" })``;
 
-export const Row = styled(Wrap.Row).attrs({ xs: 1, sm: 2, md: 3, lg: 4, margin: '0 -25px 0px' })``;
+export const Row = styled(Wrap.Row).attrs({
+  xs: 1,
+  sm: 2,
+  md: 3,
+  lg: 4,
+  margin: "0 -25px 0px",
+})``;
