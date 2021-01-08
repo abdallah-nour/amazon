@@ -1,28 +1,29 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Button = styled.button`
   display: block;
-  position:${props=> props.position};
-  bottom:${props=> props.bottom};
-  left:${props=> props.left};
-  width: ${props => props.width || '100%'};
-  min-width:  ${props => props.minWidth || 'min-content'};
-  max-width:346px;
-  height: ${props => props.height || '31px'};
-  min-height: min-content;
-  margin:${props => props.margin || '0 auto'};
+  position: ${(props) => props.position};
+  bottom: ${(props) => props.bottom};
+  left: ${(props) => props.left};
+  width: ${(props) => props.width || "100%"};
+  min-width: ${(props) => props.minWidth || "min-content"};
+  max-width: 346px;
+  height: ${(props) => props.height || "31px"};
+  margin: ${(props) => props.margin || "0 auto"};
   color: #111;
-  background: ${props => props.bgColor || 'linear-gradient(to bottom,#f7dfa5,#f0c14b)'};
-  border: 1px solid ;
+  background: ${(props) =>
+    props.bgColor || "linear-gradient(to bottom,#f7dfa5,#f0c14b)"};
+  border: 1px solid;
   border-radius: 3px;
-  border-color: ${props => props.borderColor || '#a88734 #9c7e31 #846a29'};
-  font-size:${props => props.size};
+  border-color: ${(props) => props.borderColor || "#a88734 #9c7e31 #846a29"};
+  font-size: ${(props) => props.size};
   white-space: nowrap;
-  :hover{
-    background: ${props => props.hoverBg || 'linear-gradient(to bottom,#f5d78e,#eeb933)'};
+  :hover {
+    background: ${(props) =>
+      props.hoverBg || "linear-gradient(to bottom,#f5d78e,#eeb933)"};
   }
-  :focus{
-    box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
+  :focus {
+    box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
   }
 `;
 export default Button;

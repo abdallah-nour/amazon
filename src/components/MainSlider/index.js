@@ -1,20 +1,21 @@
-import React from 'react'
-import * as S from './style'
-import Carousel from 'react-bootstrap/Carousel'
+import * as S from "./style";
+
+import Carousel from "react-bootstrap/Carousel";
+import React from "react";
 
 export default function MainSlider() {
   return (
     <S.Container>
-      <Carousel nextIcon={<S.NextArrow />} prevIcon={<S.PrevArrow />} indicators={false}>
-        <Carousel.Item >
-          <S.SliderImage
-            image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2020/CyberMonday/Fuji_TallHero_CM_v2_en_US_1x._CB414209152_.png"
-          />
+      <Carousel
+        nextIcon={<S.NextArrow />}
+        prevIcon={<S.PrevArrow />}
+        indicators={false}
+      >
+        <Carousel.Item>
+          <S.SliderImage image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2020/CyberMonday/Fuji_TallHero_CM_v2_en_US_1x._CB414209152_.png" />
         </Carousel.Item>
         <Carousel.Item>
-          <S.SliderImage
-            image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2020/Holiday/GiftGuide/Fuji_TallHero_GG2_en_US_1x._CB418256337_.jpg"
-          />
+          <S.SliderImage image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2020/Holiday/GiftGuide/Fuji_TallHero_GG2_en_US_1x._CB418256337_.jpg" />
         </Carousel.Item>
         <Carousel.Item>
           <S.SliderImage
@@ -42,5 +43,5 @@ export default function MainSlider() {
         </Carousel.Item>
       </Carousel>
     </S.Container>
-  )
+  );
 }

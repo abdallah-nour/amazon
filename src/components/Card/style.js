@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components'
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-const mobileWidth = '576px';
+const mobileWidth = "576px";
 
 export const CardContainer = styled.div`
   font-size: 13px;
-  background-color:white;
+  background-color: white;
   max-height: 420px;
-  @media only screen and (max-width:${mobileWidth}){
+  @media only screen and (max-width: ${mobileWidth}) {
     margin: 0 35px;
   }
 `;
@@ -20,7 +20,7 @@ export const Content = styled.div`
 `;
 
 export const Header = styled.header`
-  display:flex;
+  display: flex;
   margin-bottom: 10px;
 `;
 
@@ -30,26 +30,27 @@ export const HeaderImage = styled.img`
 
 export const HeaderImg = (props) => {
   return (
-    <Link to='/'>
+    <Link to="/">
       <HeaderImage {...props} />
     </Link>
   );
-}
+};
 
 export const Body = styled.div`
-margin-top:-10px;
-  & img{
-    display:block;
+  margin-top: -10px;
+  & img {
+    display: block;
     margin: 0 auto;
-    height: ${props=> props.imgMaxHeight || '100%'};
+    height: ${(props) => props.imgMaxHeight || "100%"};
     max-width: 100%;
-    object-fit: ${props=> props.imgFit || 'cover'};
+    object-fit: ${(props) => props.imgFit || "cover"};
   }
-  `;
+`;
 export const Footer = styled.div`
   position: absolute;
   bottom: 0;
   margin-bottom: 15px;
-  width:70%;
+  width: 70%;
   background-color: white;
-  `;
+  white-space: nowrap;
+`;

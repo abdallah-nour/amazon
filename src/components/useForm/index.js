@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const useForm = (initInputs, cb) => {
   const [inputs, setInputs] = useState(initInputs || {});
@@ -13,5 +13,5 @@ const useForm = (initInputs, cb) => {
     cb(inputs.email, inputs.password, inputs.name);
   }
   return [inputs, handleChange, handleSubmit];
-}
+};
 export default useForm;

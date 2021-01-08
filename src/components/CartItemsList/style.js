@@ -1,8 +1,7 @@
-import styled from 'styled-components'
-
+import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color:white;
+  background-color: white;
   padding: 20px;
   /* max-width: 980px; */
   /* margin-right: 20px; */
@@ -23,9 +22,8 @@ export const HeaderSmallTxt = styled.p`
 
 export const SubtotalContainer = styled.div`
   margin-bottom: 50px;
-
 `;
 export const SubtotalContent = styled.div`
-  position:absolute;
+  position: absolute;
   right: 0px;
 `;

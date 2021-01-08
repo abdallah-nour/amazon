@@ -25,7 +25,11 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    
+    "extends": [
+      "react-app",
+      "plugin:prettier/recommended",
+      "prettier/react"
+    ]
   },
   "browserslist": {
     "production": [
