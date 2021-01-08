@@ -2,12 +2,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import { Container, Wrapper } from "./components/Container";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import {
+  Redirect,
+  Route,
+  BrowserRouter as Router,
+  Switch,
+} from "react-router-dom";
 import reducer, { initState } from "./components/reducer";
 import { useEffect, useState } from "react";
 
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
+import NotFoundPage from "./pages/NotFoundPage";
 import Search from "./pages/Search";
 import SideMenu from "./components/SideMenu";
 import SignIn from "./pages/SignIn";
@@ -58,6 +64,10 @@ function App() {
                     visible={visibleSideMenu}
                     setVisibility={setVisibility}
                   />
+                </Route>
+                <Route path="*">
+                  <Redirect to="error404" />
+                  <NotFoundPage />
                 </Route>
               </Switch>
             </StateProvider>
