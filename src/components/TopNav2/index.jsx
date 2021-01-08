@@ -17,7 +17,8 @@ export default function TopNav2({ setSideMenuVisibility }) {
         <S.ShopNavItem>abdallah's Amazon.com</S.ShopNavItem>
         <S.ShopNavItem>Customer Service</S.ShopNavItem>
         <S.ShopNavItem>
-          Browsing History <Arrow margin="5px 0 0  5px" />
+          Browsing History
+          {/* <Arrow margin="5px 0 0  5px" /> */}
         </S.ShopNavItem>
         <S.ShopNavItem>Gift Cards</S.ShopNavItem>
         <S.ShopNavItem>Sell</S.ShopNavItem>
