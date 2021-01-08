@@ -67,7 +67,12 @@ export default function SignIn() {
             <Txt.CustomLink bright="65%">Conditions of Use</Txt.CustomLink> and{" "}
             <Txt.CustomLink bright="65%"> Privacy Notice.</Txt.CustomLink>
           </Txt.P>
-          <Txt.CustomLink size="13px" display="block" margin="22px 0 0 0">
+          <Txt.CustomLink
+            size="13px"
+            display="block"
+            margin="22px 0 0 0"
+            color="#0056b3"
+          >
             <bg.I
               bgPosition="-366px -86px"
               margin="0 4px 1px 0"

@@ -86,7 +86,8 @@ export default function SignUp() {
           <Sign.ShadowedFooter padding="15px 0 0 0" margin="26px 0 0 0">
             <Txt.P margin="10px 0 0 0" size="13px">
               Already have an account?
-              <Txt.CustomLink to="/signin" size="13px">
+              <Txt.CustomLink to="/signin" size="13px" color="#0056b3">
+                {" "}
                 Sign-in{" "}
               </Txt.CustomLink>
               <S.Arrow />
