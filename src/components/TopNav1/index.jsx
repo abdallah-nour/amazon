@@ -12,7 +12,6 @@ import SearchBox from "./SearchBox";
 import { useStateValue } from "../StateProvider";
 
 function TopNav1() {
-  // ./node_modules/.bin/eslint --init
   const history = useHistory();
   const [{ cart, user }, dispatch] = useStateValue();
   const { search: searchQ } = useLocation();

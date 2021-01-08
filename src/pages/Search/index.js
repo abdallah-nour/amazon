@@ -14,8 +14,8 @@ export default function Search({ setSideMenuVisibility }) {
   const [refinements, setFilters] = useSearch();
   let checkboxValues = {};
   refinements &&
-    Object.keys(refinements).map((key) => {
-      refinements[key].map(
+    Object.keys(refinements).forEach((key) => {
+      refinements[key].forEach(
         (item) => (checkboxValues = { ...checkboxValues, [item.value]: false })
       );
     });
@@ -23,7 +23,7 @@ export default function Search({ setSideMenuVisibility }) {
   /***/
   function handleFiltersBtn() {
     let filters = [];
-    Object.keys(checkboxes).map((key) => {
+    Object.keys(checkboxes).forEach((key) => {
       checkboxes[key] && filters.push(key);
     });
     setFilters(filters);

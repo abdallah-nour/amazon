@@ -6,7 +6,7 @@ import { useStateValue } from "../../components/StateProvider";
 
 export default function useSearch() {
   const [filters, setFilters] = useState([]);
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   const { search } = useLocation();
   const history = useHistory();
   const searchQuery = search.substr(3).replace(/[\+]/g, " ");
@@ -32,7 +32,7 @@ export default function useSearch() {
           console.log(err.message);
         });
     }
-  }, [search, filters]);
+  }, [search, filters, dispatch, apiKey, searchQuery]);
 
   if (!search) {
     setTimeout(() => {

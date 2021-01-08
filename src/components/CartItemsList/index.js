@@ -5,7 +5,7 @@ import CartSubtotal from "../CartSubtotal";
 import { useStateValue } from "../StateProvider";
 
 export default function CartItemsList({ children }) {
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   function clearItems() {
     dispatch({ type: "CLEAR_CART" });
   }

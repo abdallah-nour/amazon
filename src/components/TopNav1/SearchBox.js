@@ -2,8 +2,6 @@ import styled, { css } from "styled-components";
 
 import { useState } from "react";
 
-// import ArrowIcon from './ArrowIcon';
-
 const focusEffect = css`
   box-shadow: 0 0 0 2px #f90, 0 0 0 3px rgba(255, 153, 0, 0.5);
   z-index: 1;
@@ -81,8 +79,6 @@ const ArrowIcon = styled.span`
   position: relative;
   padding: ${(props) => props.top + " " + props.right + " "} 0 0;
 `;
-
-const Select = styled.select``;
 
 export default function SearchBox({ onSubmit, value, onChange }) {
   const [focusEffect, setFocusEffect] = useState(false);

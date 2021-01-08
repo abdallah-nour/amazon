@@ -1,6 +1,6 @@
 import * as S from "./Style";
 
-import { Arrow, HeaderLink } from "../Header/style";
+import { Arrow } from "../Header/style";
 
 export default function TopNav2({ setSideMenuVisibility }) {
   return (

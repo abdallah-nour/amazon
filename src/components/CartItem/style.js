@@ -2,7 +2,6 @@ import * as Txt from "../Txt";
 
 import styled from "styled-components";
 
-const smallLapWidth = "1145px";
 const ipadWidth = "835px";
 const mobileWidth = "480px";
 

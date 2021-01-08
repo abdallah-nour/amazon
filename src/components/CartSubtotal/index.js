@@ -7,7 +7,7 @@ function CartSubtotal() {
   const [{ cart }] = useStateValue();
   let nmbOfItems = cart.length;
   let totalPrice = 0;
-  cart.map((item) => {
+  cart.forEach((item) => {
     isNaN(+item.price) ? --nmbOfItems : (totalPrice += +item.price);
   });
   return (

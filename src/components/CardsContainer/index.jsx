@@ -2,8 +2,6 @@ import * as S from "./style";
 
 import Card from "../Card";
 import React from "react";
-import image1 from "../../assets/card11.png";
-import image2 from "../../assets/card2.png";
 import { useStateValue } from "../StateProvider";
 
 export function FirstCardsContainer() {

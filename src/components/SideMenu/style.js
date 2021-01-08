@@ -1,6 +1,3 @@
-// Q/ when the page is load (make a req)
-// what's happen when we discard the req using the X in the top left???
-
 import * as Txt from "../Txt";
 
 import { Link } from "react-router-dom";
@@ -82,11 +79,6 @@ export const MenuHeader = ({ userName }) => {
   );
 };
 
-const MenuBody = styled.div`
-  overflow-x: hidden;
-`;
-
-// List: left/ 36px, right/20px
 export const BodyList = styled.ul`
   width: 100%;
   padding: 7px 0 30px;

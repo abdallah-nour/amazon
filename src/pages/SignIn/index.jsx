@@ -2,11 +2,10 @@ import * as Sign from "../../components/SignComponents";
 import * as Txt from "../../components/Txt";
 import * as bg from "../../components/Background";
 
-import { auth, firebase } from "../../firebase";
-
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import TxtField from "../../components/TxtField";
+import { auth } from "../../firebase";
 import useForm from "../../components/useForm";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../components/StateProvider";
@@ -15,7 +14,7 @@ import { useStateValue } from "../../components/StateProvider";
 
 export default function SignIn() {
   const history = useHistory();
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   async function SignIn(email, pass) {
     try {

@@ -87,6 +87,8 @@ export const Stars = styled.i`
         return "-99px -132px";
       case "1":
         return "-390px -228px";
+      default:
+        return "";
     }
   }};
 `;

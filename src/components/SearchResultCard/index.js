@@ -17,7 +17,7 @@ export default function SearchResultCard({
   shipTxt,
   nmbStock,
 }) {
-  const [{ cart }, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   const addToCart = () => {
     dispatch({
       type: "ADD_TO_CART",

@@ -24,7 +24,7 @@ function App() {
       } else {
       }
     });
-  }, [auth.user]);
+  }, []);
   return (
     <div className="App">
       <Router>

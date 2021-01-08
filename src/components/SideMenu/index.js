@@ -1,6 +1,3 @@
-// 1)state for : last sub list(lang, country, SignStates).
-// make the country state an obj so it hold the name and the flag.
-
 import * as Bg from "../Background";
 import * as S from "./style";
 

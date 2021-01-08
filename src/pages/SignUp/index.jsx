@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../components/StateProvider";
 
 export default function SignUp() {
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   const history = useHistory();
 
   async function CreateUser(email, password, name) {

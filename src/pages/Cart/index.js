@@ -1,7 +1,5 @@
 import * as S from "./style";
 
-import { useEffect, useState } from "react";
-
 import Button from "../../components/Button";
 import CartItem from "../../components/CartItem";
 import CartItemsList from "../../components/CartItemsList";

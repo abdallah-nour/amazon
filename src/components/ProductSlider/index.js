@@ -18,10 +18,10 @@ export default function ProductSlider({
   function handleScroll() {
     const scrollValue =
       carouselRef.current.clientWidth + carouselRef.current.scrollLeft;
-    scrollValue == carouselRef.current.scrollWidth
+    scrollValue === carouselRef.current.scrollWidth
       ? setNextBtnDisable(true)
       : setNextBtnDisable(false);
-    carouselRef.current.scrollLeft == 0
+    carouselRef.current.scrollLeft === 0
       ? setPrevBtnDisable(true)
       : setPrevBtnDisable(false);
   }

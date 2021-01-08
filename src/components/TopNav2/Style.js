@@ -1,8 +1,7 @@
 import * as Txt from "../Txt";
 
-import styled, { css } from "styled-components";
-
 import { HeaderLink } from "../Header/style";
+import styled from "styled-components";
 
 export const Container = styled.nav`
   width: 100%;

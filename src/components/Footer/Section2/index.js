@@ -10,19 +10,17 @@ export default function Section2() {
   return (
     <S.Container>
       <S.Row max_width="1060px" sm={4} xs={2}>
-        {rows.map((row) => {
-          {
-            row.map((arr, index) => {
-              return (
-                <Column key={index}>
-                  <S.Cell>
-                    <S.CellHeader>{arr[0]}</S.CellHeader>
-                    <S.CellBody>{arr[1]}</S.CellBody>
-                  </S.Cell>
-                </Column>
-              );
-            });
-          }
+        {rows.forEach((row) => {
+          row.forEach((arr, index) => {
+            return (
+              <Column key={index}>
+                <S.Cell>
+                  <S.CellHeader>{arr[0]}</S.CellHeader>
+                  <S.CellBody>{arr[1]}</S.CellBody>
+                </S.Cell>
+              </Column>
+            );
+          });
         })}
       </S.Row>
       <S.CopyAndRights>
