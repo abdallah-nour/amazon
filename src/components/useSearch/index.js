@@ -9,7 +9,7 @@ export default function useSearch() {
   const [, dispatch] = useStateValue();
   const { search } = useLocation();
   const history = useHistory();
-  const searchQuery = search.substr(3).replace(/[\+]/g, " ");
+  const searchQuery = search.substr(3).replace(/[+]/g, " ");
   const apiKey = process.env.REACT_APP_SEARCH_API_KEY;
   const [refinements, setRefinements] = useState();
 

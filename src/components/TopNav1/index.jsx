@@ -15,7 +15,7 @@ function TopNav1() {
   const history = useHistory();
   const [{ cart, user }, dispatch] = useStateValue();
   const { search: searchQ } = useLocation();
-  const searchQuery = searchQ.substr(3).replace(/[\+]/g, " ");
+  const searchQuery = searchQ.substr(3).replace(/[+]/g, " ");
   const [searchField, setSearchField] = useState(searchQuery || "");
   const [userName, setUserName] = useState("");
 
