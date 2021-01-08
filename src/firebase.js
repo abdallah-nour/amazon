@@ -28,4 +28,4 @@ const auth = firebase.auth();
 //     console.log(err);
 //   });
 
-export { db, auth };
+export { firebase, db, auth };

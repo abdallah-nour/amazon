@@ -23,7 +23,7 @@ export default function SignIn() {
       const userName = res.user.displayName;
       dispatch({ type: "UPDATE_USER", payload: { name: userName } });
       history.push("/");
-      await auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
+      // await auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
     } catch (e) {
       console.log(e);
     }
