@@ -115,22 +115,3 @@ export default function Search({ setSideMenuVisibility }) {
     </>
   );
 }
-
-{
-  /* 
-  we will loop on the object (refinements) and get arrays
-  for every array we will take the name of it and put it in <h3>
-  we will loop on the array items and put them in checkboxes
-  except condition, department, Review, price and weight (just make price and reviews)
-  if(condition, department, Review, price and weight){
-    without checkbox;
-    Link onClick will refinements.price.value add for a state (called refinements)
-  }
-  else{
-    will make a checkbox
-  }
-  we will add a button to make new search request with refinements.
-  put refinements (array) state in url
-  &refinements=p_1,p_2
-          */
-}
