@@ -5,11 +5,10 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: #95c2de;
+  background-color: #c45500;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1px;
 `;
 
 export const Content = styled.div`
@@ -17,6 +16,9 @@ export const Content = styled.div`
   max-width: 500px;
   position: relative;
   text-align: center;
+  & a:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const NumberContainer = styled.div`
@@ -27,17 +29,15 @@ export const NumberContainer = styled.div`
   & *:not(:last-child) {
     margin-right: 20px;
   }
-`;
-
-export const Nmb = styled.span`
-  color: white;
   font-size: 7em;
+  & * {
+    color: rgb(20, 20, 20);
+  }
 `;
 
 const spin = keyframes`
-  100% { 
-  -webkit-transform: rotate(360deg); 
-  transform:rotate(360deg); 
+  100% {
+    transform:rotate(360deg); 
   }
 `;
 
@@ -45,6 +45,6 @@ export const QuestionIcon = styled(FaRegQuestionCircle)`
   font-size: 8.5rem;
   animation: ${spin} 2.7s linear infinite;
   & * {
-    color: white;
+    color: rgb(20, 20, 20);
   }
 `;
