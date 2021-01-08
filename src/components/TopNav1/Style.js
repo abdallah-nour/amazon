@@ -114,7 +114,7 @@ export const UserInfo = ({ name }) => {
       </Txt.P>
       <Txt.P color="white" margin="-6px 0 0 0" weight="700" size="13.5px">
         Account & Lists
-        <Arrow margin="9px 3px 0px 5px" />
+        {/* <Arrow margin="9px 3px 0px 5px" /> */}
       </Txt.P>
     </>
   );
