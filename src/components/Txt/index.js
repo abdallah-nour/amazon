@@ -46,7 +46,7 @@ export const CustomLink = styled(Link).attrs((props) => ({
   -webkit-line-clamp: ${(props) => props.lines};
   overflow: ${(props) => (props.lines ? "hidden" : "")};
   :hover {
-    color: ${(props) => props.hoverColor || "#c45500"};
+    color: ${(props) => props.hover_color || "#c45500"};
   }
   text-transform: ${(props) => props.transform || "capitalize"};
 `;
