@@ -1,7 +1,5 @@
 import * as S from "./Style";
 
-import { Arrow } from "../Header/style";
-
 export default function TopNav2({ setSideMenuVisibility }) {
   return (
     <S.Container>

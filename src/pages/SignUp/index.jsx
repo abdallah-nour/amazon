@@ -24,7 +24,6 @@ export default function SignUp() {
         payload: { name: res.user.displayName },
       });
       // let response = await res.user.sendEmailVerification();
-      // console.log('Sign up /',response);
       history.push("/");
     } catch (err) {
       console.log(err);

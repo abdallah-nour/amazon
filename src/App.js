@@ -24,12 +24,7 @@ import { auth } from "./firebase";
 function App() {
   const [visibleSideMenu, setVisibility] = useState(false);
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      console.log("The user is >>> ", user);
-      if (user) {
-      } else {
-      }
-    });
+    auth.onAuthStateChanged((user) => {});
   }, []);
   return (
     <div className="App">
