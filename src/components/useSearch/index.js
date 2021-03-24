@@ -10,7 +10,8 @@ export default function useSearch() {
   const { search } = useLocation();
   const history = useHistory();
   const searchQuery = search.substr(3).replace(/[+]/g, " ");
-  const apiKey = process.env.REACT_APP_SEARCH_API_KEY;
+  const apiKey = "088A829669D44A9B8A480A30B4A4A6C0";
+  // const apiKey = process.env.REACT_APP_SEARCH_API_KEY_2;
   const [refinements, setRefinements] = useState();
 
   useEffect(() => {
@@ -25,7 +26,6 @@ export default function useSearch() {
         .then((res) => {
           const searchResults = res.data.search_results;
           setRefinements(res.data.refinements);
-          console.log(res.data);
           dispatch({ type: "EDIT_SEARCH_RESULTS", payload: searchResults });
         })
         .catch((err) => {

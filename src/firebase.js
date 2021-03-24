@@ -12,7 +12,6 @@ const firebaseConfig = {
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-console.log(firebaseApp.name);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
 // try {
